@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using BookStoreClasses;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace BookStore_Testing
