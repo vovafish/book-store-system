@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
+/* THE FILE CREATED BY VLADIMIRS RIBAKOVS */
+
 namespace BookStore_Testing
 {
     [TestClass]
