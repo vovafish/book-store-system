@@ -1,5 +1,7 @@
 ﻿using System;
 
+/* THE FILE CREATED BY VLADIMIRS RIBAKOVS */
+
 namespace BookStoreClasses
 {
     public class clsBook
