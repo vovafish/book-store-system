@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="Label1" runat="server" Text="Author"></asp:Label>
+            <asp:Label ID="lblAuthor" runat="server" Text="Author"></asp:Label>
             <asp:TextBox ID="txtAuthor" runat="server"></asp:TextBox>
         </div>
         <div>
