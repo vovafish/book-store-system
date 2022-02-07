@@ -1,5 +1,5 @@
 ﻿using System;
-//using BookStoreClasses;
+using BookStoreClasses;
 
 
 
@@ -12,7 +12,7 @@ public partial class ABook : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        /*
+        
         //create a new instance of the class
         clsBook ABook = new clsBook();
         //capture the author
@@ -21,6 +21,6 @@ public partial class ABook : System.Web.UI.Page
         Session["ABook"] = ABook;
         //redirect to the page
         Response.Redirect("BookViewer.aspx");
-        */
+        
     }
 }
