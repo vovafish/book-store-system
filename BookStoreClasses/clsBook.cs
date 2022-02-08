@@ -6,16 +6,56 @@ namespace BookStoreClasses
 {
     public class clsBook
     {
-        public string Author { get; set; }
-        public int Edition { get; set; }
-        public int PublicationYear { get; set; }
-        public decimal bookPrice { get; set; }
-        public decimal bookShelfNo { get; set; }
-        public string bookTitle { get; set; }
-        public string genreName { get; set; }
-
-        public bool Find(string Title)
+        private string mBookTitle;
+        private int mEdition;
+        public string Author
         {
+            get;
+            set;
+        }
+        public int Edition
+        {
+            get
+            {
+                return mEdition;
+            }
+            set
+            {
+                mEdition = value;
+            }
+        }
+        public int PublicationYear
+        {
+            get; set;
+        }
+        public decimal bookPrice
+        {
+            get; set;
+        }
+        public decimal bookShelfNo
+        { 
+            get; set; 
+        }
+        public string bookTitle 
+        {
+            get
+            {
+                return mBookTitle;    
+            }
+            set 
+            {
+                mBookTitle = value;
+            }
+        }
+        public string genreName
+        {
+            get; set;
+        } 
+
+        public bool Find(string bookTitle)
+        {
+            mBookTitle = "BookName";
+            mEdition = 1;
             return true;
         }
 

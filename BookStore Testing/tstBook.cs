@@ -842,9 +842,39 @@ namespace BookStore_Testing
             clsBook ABook = new clsBook();
             string TestData;
             TestData = "BookName";
-            Boolean Found;
+            Boolean Found = false;
             Found = ABook.Find(TestData);
             Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestBookTitleFound()
+        {
+            clsBook ABook = new clsBook();
+            string bookTitle = "BookName";
+            Boolean OK = true;
+            Boolean Found = false;
+            Found = ABook.Find(bookTitle);
+            if (ABook.bookTitle != "BookName")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestEditionFound()
+        {
+            clsBook ABook = new clsBook();
+            string bookTitle = "BookName";
+            Boolean OK = true;
+            Boolean Found = false;
+            Found = ABook.Find(bookTitle);
+            if (ABook.Edition != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
