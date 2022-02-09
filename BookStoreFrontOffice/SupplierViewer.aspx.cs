@@ -14,7 +14,8 @@ public partial class SupplierViewer : System.Web.UI.Page
         clsSupplier ASupplier = new clsSupplier();
         //get the data from the session object
         ASupplier = (clsSupplier)Session["ASupplier"];
-        //display the house number for this entry
-        Response.Write(ASupplier.Name);
+        //display the supplier for this entry
+        Response.Write(ASupplier.Name + " " + ASupplier.Address + " " + ASupplier.Postcode + " " + ASupplier.PhoneNumber + " " + ASupplier.Description + " " + ASupplier.Cost);
+
     }
 }

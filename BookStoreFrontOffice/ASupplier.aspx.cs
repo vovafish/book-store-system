@@ -19,6 +19,11 @@ public partial class ASupplier : System.Web.UI.Page
         clsSupplier ASupplier = new clsSupplier();
         //capture the name
         ASupplier.Name = txtName.Text;
+        ASupplier.Address = txtAddress.Text;
+        ASupplier.Postcode = txtPostcode.Text;
+        ASupplier.PhoneNumber = txtPhoneNumber.Text;
+        ASupplier.Description = txtDescription.Text;
+        ASupplier.Cost = Convert.ToDouble(txtCost.Text);
         //Store address in session object
         Session["ASupplier"] = ASupplier;
         //redirect to viewer page
