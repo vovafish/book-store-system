@@ -7,6 +7,7 @@ namespace BookStoreClasses
     public class clsBook
     {
         //private data members for all the attributes
+        private int mBookId;
         private string mBookTitle;
         private int mEdition;
         private int mPublicationYear;
@@ -14,6 +15,32 @@ namespace BookStoreClasses
         private decimal mBookPrice;
         private decimal mBookShelfNo;
         private string mGenreName;
+
+        
+
+        public string BookTitle
+        {
+            get
+            {
+                return mBookTitle;
+            }
+            set
+            {
+                mBookTitle = value;
+            }
+        }
+
+        public int Edition
+        {
+            get
+            {
+                return mEdition;
+            }
+            set
+            {
+                mEdition = value;
+            }
+        }
 
         //public property for Author
         public string Author
@@ -32,17 +59,7 @@ namespace BookStoreClasses
         /*
          the rest of the code means the same
          */
-        public int Edition
-        {
-            get
-            {
-                return mEdition;
-            }
-            set
-            {
-                mEdition = value;
-            }
-        }
+        
         public int PublicationYear
         {
             get
@@ -54,7 +71,7 @@ namespace BookStoreClasses
                 mPublicationYear = value;
             }
         }
-        public decimal bookPrice
+        public decimal BookPrice
         {
             get
             {
@@ -65,7 +82,7 @@ namespace BookStoreClasses
                 mBookPrice = value;
             }
         }
-        public decimal bookShelfNo
+        public decimal BookShelfNo
         {
             get
             {
@@ -76,18 +93,8 @@ namespace BookStoreClasses
                 mBookShelfNo = value;
             }
         }
-        public string bookTitle 
-        {
-            get
-            {
-                return mBookTitle;    
-            }
-            set 
-            {
-                mBookTitle = value;
-            }
-        }
-        public string genreName
+       
+        public string GenreName
         {
             get
             {
@@ -97,20 +104,50 @@ namespace BookStoreClasses
             {
                 mGenreName = value;
             }
-        } 
+        }
 
-        public bool Find(string bookTitle)
+        public int BookId
         {
-            //set the private data members to the test data value
-            mBookTitle = "BookName";
-            mEdition = 1;
-            mPublicationYear = 2000;
-            mAuthor = "James Ross";
-            mBookPrice = 14.78m;
-            mBookShelfNo = 100.10m;
-            mGenreName = "Drama";
-            //always return true
-            return true;
+            get
+            {
+                return mBookId;
+            }
+            set
+            {
+                mBookId = value;
+            }
+        }
+
+        public bool Find(int BookId)
+        {
+            //create an instance of the data connectin
+            clsDataConnection DB = new clsDataConnection();
+            //add the parametrs for the book to search for it
+            DB.AddParameter("@BookId", BookId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblBook_FillterByBookId");
+            //if one record if found (there should either one or zero)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mBookId = Convert.ToInt32(DB.DataTable.Rows[0]["bk_id"]);
+                mBookTitle = Convert.ToString(DB.DataTable.Rows[0]["bk_title"]);
+                mEdition = Convert.ToInt32(DB.DataTable.Rows[0]["bk_edition_no"]);
+                mPublicationYear = Convert.ToInt32(DB.DataTable.Rows[0]["bk_pub_yr"]);
+                mAuthor = Convert.ToString(DB.DataTable.Rows[0]["bk_author"]);
+                mBookPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["bk_price"]);
+                mBookShelfNo = Convert.ToDecimal(DB.DataTable.Rows[0]["bk_shelf_no"]);
+                mGenreName = Convert.ToString(DB.DataTable.Rows[0]["bk_genre"]);
+                //return everyting worked OK
+                return true;
+            }
+            //if no records was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
+            
         }
 
         public string Valid(string Author)
@@ -154,11 +191,11 @@ namespace BookStoreClasses
             return Error;
         }
 
-        public string ValidBookPrice(decimal bookPrice)
+        public string ValidBookPrice(decimal BookPrice)
         {
             string Error = "";
             //if book price not less than 0.01  or greater than 500.00 reutrn the error msg 
-            if (bookPrice < 0.01m || bookPrice > 500.00m)
+            if (BookPrice < 0.01m || BookPrice > 500.00m)
             {
                 Error = "The book price is not valid";
             }
@@ -166,11 +203,11 @@ namespace BookStoreClasses
             return Error;
         }
 
-        public string ValidBookShelfNo(decimal bookShelfNo)
+        public string ValidBookShelfNo(decimal BookShelfNo)
         {
             string Error = "";
             //if book shelf less than 0.0000 or greater than 999.9999 return the error msg
-            if (bookShelfNo < 0.0000m || bookShelfNo > 999.9999m)
+            if (BookShelfNo < 0.0000m || BookShelfNo > 999.9999m)
             {
                 Error = "The book shlef number is not valid";
             }
@@ -179,14 +216,14 @@ namespace BookStoreClasses
         }
 
         /* the same as validation for attribute Author */
-        public string ValidTitle(string bookTitle)
+        public string ValidTitle(string BookTitle)
         {
             string Error = "";
-            if (bookTitle == "")
+            if (BookTitle == "")
             {
                 Error = "The Book Title may not be blank";
             }
-            if (bookTitle.Length > 50)
+            if (BookTitle.Length > 50)
             {
                 Error = "The Book Title must be 50 characters or less";
             }
@@ -194,14 +231,14 @@ namespace BookStoreClasses
         }
 
         /* the same as validation for attribute Author */
-        public string ValidGenre(string genreName)
+        public string ValidGenre(string GenreName)
         {
             string Error = "";
-            if (genreName == "")
+            if (GenreName == "")
             {
                 Error = "The Book Genre may not be blank";
             }
-            if (genreName.Length > 50)
+            if (GenreName.Length > 50)
             {
                 Error = "The Book Genre must be 50 characters or less";
             }

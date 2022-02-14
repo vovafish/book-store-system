@@ -386,8 +386,8 @@ namespace BookStore_Testing
             clsBook ABook = new clsBook();
             decimal TestData;
             TestData = 48.28m;
-            ABook.bookPrice = TestData;
-            Assert.AreEqual(TestData, ABook.bookPrice);
+            ABook.BookPrice = TestData;
+            Assert.AreEqual(TestData, ABook.BookPrice);
         }
 
         [TestMethod]
@@ -508,8 +508,8 @@ namespace BookStore_Testing
             clsBook ABook = new clsBook();
             decimal TestData;
             TestData = 48.284m;
-            ABook.bookShelfNo = TestData;
-            Assert.AreEqual(TestData, ABook.bookShelfNo);
+            ABook.BookShelfNo = TestData;
+            Assert.AreEqual(TestData, ABook.BookShelfNo);
         }
 
         [TestMethod]
@@ -725,8 +725,8 @@ namespace BookStore_Testing
             clsBook ABook = new clsBook();
             string TestData;
             TestData = "TestBookTitle";
-            ABook.bookTitle = TestData;
-            Assert.AreEqual(TestData, ABook.bookTitle);
+            ABook.BookTitle = TestData;
+            Assert.AreEqual(TestData, ABook.BookTitle);
         }
 
         // Book Title end // 
@@ -834,9 +834,9 @@ namespace BookStore_Testing
         {
             clsBook ABook = new clsBook();
             string TestData;
-            TestData = "TestGenreName";
-            ABook.genreName = TestData;
-            Assert.AreEqual(TestData, ABook.genreName);
+            TestData = "Drama";
+            ABook.GenreName = TestData;
+            Assert.AreEqual(TestData, ABook.GenreName);
         }
 
         // Genre name end //
@@ -845,22 +845,36 @@ namespace BookStore_Testing
         public void FindOK()
         {
             clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "BookName";
             Boolean Found = false;
+            int TestData = 1;
             Found = ABook.Find(TestData);
             Assert.IsTrue(Found);
         }
 
         [TestMethod]
+        public void TestBookIdFound()
+        {
+            clsBook ABook = new clsBook();
+            Boolean Found = false;
+            Boolean OK = true;
+            int BookId = 3;
+            Found = ABook.Find(BookId);
+            if (ABook.BookId != 3)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        
+        [TestMethod]
         public void TestBookTitleFound()
         {
             clsBook ABook = new clsBook();
-            string bookTitle = "BookName";
-            Boolean OK = true;
             Boolean Found = false;
-            Found = ABook.Find(bookTitle);
-            if (ABook.bookTitle != "BookName")
+            Boolean OK = true;
+            int BookId = 3;
+            Found = ABook.Find(BookId);
+            if (ABook.BookTitle != "BookName")
             {
                 OK = false;
             }
@@ -871,10 +885,10 @@ namespace BookStore_Testing
         public void TestEditionFound()
         {
             clsBook ABook = new clsBook();
-            string bookTitle = "BookName";
-            Boolean OK = true;
             Boolean Found = false;
-            Found = ABook.Find(bookTitle);
+            Boolean OK = true;
+            int BookId = 3;
+            Found = ABook.Find(BookId);
             if (ABook.Edition != 1)
             {
                 OK = false;
@@ -887,14 +901,12 @@ namespace BookStore_Testing
         {
             //create an instance of the class we want to create
             clsBook ABook = new clsBook();
-            //create some test data to use with the method
-            string bookTitle = "BookName";
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //boolean variable to store the result of the search
             Boolean Found = false;
-            //invoke the method
-            Found = ABook.Find(bookTitle);
+            int BookId = 3;
+            Found = ABook.Find(BookId);
             //check the property
             if (ABook.PublicationYear != 2000)
             {
@@ -910,13 +922,13 @@ namespace BookStore_Testing
             //create an instance of the class we want to create
             clsBook ABook = new clsBook();
             //create some test data to use with the method
-            string bookTitle = "BookName";
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //boolean variable to store the result of the search
             Boolean Found = false;
             //invoke the method
-            Found = ABook.Find(bookTitle);
+            int BookId = 3;
+            Found = ABook.Find(BookId);
             //check the property
             if (ABook.Author != "James Ross")
             {
@@ -932,15 +944,15 @@ namespace BookStore_Testing
             //create an instance of the class we want to create
             clsBook ABook = new clsBook();
             //create some test data to use with the method
-            string bookTitle = "BookName";
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //boolean variable to store the result of the search
             Boolean Found = false;
             //invoke the method
-            Found = ABook.Find(bookTitle);
+            int BookId = 3;
+            Found = ABook.Find(BookId);
             //check the property
-            if (ABook.bookPrice != 14.78m)
+            if (ABook.BookPrice != 14.78m)
             {
                 OK = false;
             }
@@ -954,15 +966,15 @@ namespace BookStore_Testing
             //create an instance of the class we want to create
             clsBook ABook = new clsBook();
             //create some test data to use with the method
-            string bookTitle = "BookName";
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //boolean variable to store the result of the search
             Boolean Found = false;
             //invoke the method
-            Found = ABook.Find(bookTitle);
+            int BookId = 3;
+            Found = ABook.Find(BookId);
             //check the property
-            if (ABook.bookShelfNo != 100.10m)
+            if (ABook.BookShelfNo != 100.10m)
             {
                 OK = false;
             }
@@ -976,22 +988,22 @@ namespace BookStore_Testing
             //create an instance of the class we want to create
             clsBook ABook = new clsBook();
             //create some test data to use with the method
-            string bookTitle = "BookName";
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //boolean variable to store the result of the search
             Boolean Found = false;
             //invoke the method
-            Found = ABook.Find(bookTitle);
+            int BookId = 3;
+            Found = ABook.Find(BookId);
             //check the property
-            if (ABook.genreName != "Drama")
+            if (ABook.GenreName != "Drama")
             {
                 OK = false;
             }
             //test to see that result if correct
             Assert.IsTrue(OK);
         }
-
+        
         [TestMethod]
         public void ValidOK()
         {
