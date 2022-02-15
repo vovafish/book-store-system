@@ -137,11 +137,11 @@ namespace BookStore_Testing
         }
 
         [TestMethod]
-        public void TestSupplierNotFound()
+        public void SupplierNoFound()
         {
             //instance of the class
             clsSupplier ASupplier = new clsSupplier();
-            //boolean variable to for the validation results
+            //boolean variable to store the validation results
             Boolean Found = false;
             //boolean variable to record is data is OK
             Boolean OK = true;
@@ -155,10 +155,141 @@ namespace BookStore_Testing
                 OK = false;
             }
             //test to see if the result is true
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
-    }    
+        [TestMethod]
+        public void NameFound()
+        {
+            //instance of the class
+            clsSupplier ASupplier = new clsSupplier();
+            //boolean variable to store the validation results
+            Boolean Found = false;
+            //boolean variable to record is data is OK
+            Boolean OK = true;
+            //create test data
+            Int32 SupplierNo = 5;
+            //invoke the method
+            Found = ASupplier.Find(SupplierNo);
+            //check the supplier no
+            if (ASupplier.Name != Convert.ToString("Book Depot"))
+            {
+                OK = false;
+            }
+            //test to see if the result is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void AddressFound()
+        {
+            //instance of the class
+            clsSupplier ASupplier = new clsSupplier();
+            //boolean variable to store the validation results
+            Boolean Found = false;
+            //boolean variable to record is data is OK
+            Boolean OK = true;
+            //create test data
+            Int32 SupplierNo = 5;
+            //invoke the method
+            Found = ASupplier.Find(SupplierNo);
+            //check the supplier no
+            if (ASupplier.Address != Convert.ToString("Canada"))
+            {
+                OK = false;
+            }
+            //test to see if the result is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void PostcodeFound()
+        {
+            //instance of the class
+            clsSupplier ASupplier = new clsSupplier();
+            //boolean variable to store the validation results
+            Boolean Found = false;
+            //boolean variable to record is data is OK
+            Boolean OK = true;
+            //create test data
+            Int32 SupplierNo = 5;
+            //invoke the method
+            Found = ASupplier.Find(SupplierNo);
+            //check the supplier no
+            if (ASupplier.Postcode != Convert.ToString("OT4 5TH"))
+            {
+                OK = false;
+            }
+            //test to see if the result is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void DescriptionFound()
+        {
+            //instance of the class
+            clsSupplier ASupplier = new clsSupplier();
+            //boolean variable to store the validation results
+            Boolean Found = false;
+            //boolean variable to record is data is OK
+            Boolean OK = true;
+            //create test data
+            Int32 SupplierNo = 5;
+            //invoke the method
+            Found = ASupplier.Find(SupplierNo);
+            //check the supplier no
+            if (ASupplier.Description != Convert.ToString("A Description"))
+            {
+                OK = false;
+            }
+            //test to see if the result is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void PhoneNumberFound()
+        {
+            //instance of the class
+            clsSupplier ASupplier = new clsSupplier();
+            //boolean variable to store the validation results
+            Boolean Found = false;
+            //boolean variable to record is data is OK
+            Boolean OK = true;
+            //create test data
+            Int32 SupplierNo = 5;
+            //invoke the method
+            Found = ASupplier.Find(SupplierNo);
+            //check the supplier no
+            if (ASupplier.PhoneNumber != Convert.ToString("07892938445"))
+            {
+                OK = false;
+            }
+            //test to see if the result is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void CostFound()
+        {
+            //instance of the class
+            clsSupplier ASupplier = new clsSupplier();
+            //boolean variable to store the validation results
+            Boolean Found = false;
+            //boolean variable to record is data is OK
+            Boolean OK = true;
+            //create test data
+            Int32 SupplierNo = 5;
+            //invoke the method
+            Found = ASupplier.Find(SupplierNo);
+            //check the supplier no
+            if (ASupplier.Cost != Convert.ToDouble(5.23))
+            {
+                OK = false;
+            }
+            //test to see if the result is true
+            Assert.IsTrue(OK);
+        }
+    }
 }
 
 
