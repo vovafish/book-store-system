@@ -23,4 +23,24 @@ public partial class ABook : System.Web.UI.Page
         Response.Redirect("BookViewer.aspx");
         
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsBook ABook = new clsBook();
+        int BookId;
+        Boolean Found = false;
+        BookId = Convert.ToInt32(txtBookId.Text);
+        Found = ABook.Find(BookId);
+        if (Found == true)   
+        {
+            txtAuthor.Text = ABook.Author;
+            txtTitle.Text = ABook.BookTitle;
+            txtPubYear.Text = ABook.PublicationYear.ToString();
+            txtEdition.Text = ABook.Edition.ToString();
+            txtShelfNo.Text = ABook.BookShelfNo.ToString();
+            txtPrice.Text = ABook.BookPrice.ToString();
+            ddlGenre.Text = ABook.GenreName;
+
+        }
+    }
 }

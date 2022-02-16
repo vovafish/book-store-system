@@ -11,6 +11,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+            <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" />
+        <div>
+            <asp:Label ID="Label1" runat="server" Text="BookId"></asp:Label>
+            <asp:TextBox ID="txtBookId" runat="server"></asp:TextBox>
+        </div>
         <div>
             <asp:Label ID="lblAuthor" runat="server" Text="Author"></asp:Label>
             <asp:TextBox ID="txtAuthor" runat="server"></asp:TextBox>
