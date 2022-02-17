@@ -1069,5 +1069,120 @@ namespace BookStore_Testing
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void AuthorMin()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Author = "A"; //this should be ok
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AuthorMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Author = "Aa"; //this should be ok
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void AuthorMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Author = "";
+            //genarate 50 times letter A
+            Author = Author.PadRight(49, 'A');//this should be ok
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AuthorMax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Author = "";
+            //genarate 50 times letter A
+            Author = Author.PadRight(50, 'A');//this should be ok
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AuthorMid()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Author = "";
+            //genarate 50 times letter A
+            Author = Author.PadRight(25, 'A');//this should be ok
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AuthorMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Author = "";
+            //genarate 50 times letter A
+            Author = Author.PadRight(51, 'A');//this should fail
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AuthorExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Author = "";
+            //genarate 50 times letter A
+            Author = Author.PadRight(500, 'A');//this should fail
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }
