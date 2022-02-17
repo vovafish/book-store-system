@@ -150,7 +150,7 @@ namespace BookStoreClasses
             
         }
 
-        public string Valid(string Author)
+        public string ValidAuthor(string Author)
         {
             //function to check if validation works for Author
             string Error = "";
@@ -250,5 +250,26 @@ namespace BookStoreClasses
             //always return true
             return true;
         }
+
+        public string Valid(string author, string title, string publicationYear, string edition, string price, string bookShelfNo)
+        {
+            //craete a string var to store the errro
+            string Error = "";
+            //if the Author is blank
+            if (author.Length == 0) 
+            {
+                //record the error
+                Error += "The author may not be blank : ";
+            }
+            //if author is greater than 50 char
+            if (author.Length > 50)
+            {
+                Error += "The author must be less than 50 characters";
+            }
+            //return any error msg
+            return Error;
+        }
+
+
     }
 }
