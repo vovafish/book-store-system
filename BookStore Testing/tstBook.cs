@@ -27,833 +27,6 @@ namespace BookStore_Testing
             //test to see that it exists
             Assert.IsNotNull(ABook);
         }
-
-        /* ********* TDD practive ************ */
-
-        // Author //
-        /*
-        [TestMethod]
-        public void AuthorMinLessOne()
-        {
-            //instance of the class
-            clsBook ABook = new clsBook();
-            //declare test data variable
-            string TestData;
-            //create test data
-            TestData = "";
-            //create var to hold error msg
-            string Error;
-            //validate test data and result put in the Error var
-            Error = ABook.ValidAuthor(TestData);
-            //if error not equal to empty string than OK
-            Assert.AreNotEqual(Error, "");
-        }
-        
-        [TestMethod]
-        public void AuthorMin()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "A";
-            string Error;
-
-            Error = ABook.ValidAuthor(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void AuthorMinPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "Aa";
-            string Error;
-
-            Error = ABook.ValidAuthor(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void AuthorMaxLessOne()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(49, 'A');
-            string Error;
-
-            Error = ABook.ValidAuthor(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void AuthorMax()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(50, 'A');
-            string Error;
-
-            Error = ABook.ValidAuthor(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void AuthorMaxPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(51, 'A');
-            string Error;
-
-            Error = ABook.ValidAuthor(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void AuthorMid()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(25, 'A');
-            string Error;
-
-            Error = ABook.ValidAuthor(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void AuthorExtremeMax()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(500, 'A');
-            string Error;
-
-            Error = ABook.ValidAuthor(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void AuthorOK()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "TestAuthor";
-            ABook.Author = TestData;
-            Assert.AreEqual(TestData, ABook.Author);
-        }
-
-        // Author End //
-
-        // Publication Year //
-
-        [TestMethod]
-        public void PublicationYearExtremeMin()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = -1000;
-            string Error;
-            Error = ABook.ValidPubYear(TestData);
-            Assert.AreNotEqual(Error, "");
-
-        }
-
-        [TestMethod]
-        public void PublicationYearMinLessOne()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 1699;
-            string Error;
-
-            Error = ABook.ValidPubYear(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PublicationYearMin()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 1700;
-            string Error;
-
-            Error = ABook.ValidPubYear(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PublicationYearMinPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 1701;
-            string Error;
-
-            Error = ABook.ValidPubYear(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PublicationYearMaxLessOne()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 2999;
-            string Error;
-
-            Error = ABook.ValidPubYear(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PublicationYearMax()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 3000;
-            string Error;
-
-            Error = ABook.ValidPubYear(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PublicationYearMaxPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 3001;
-            string Error;
-
-            Error = ABook.ValidPubYear(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PublicationYearMid()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 1500;
-            string Error;
-
-            Error = ABook.ValidPubYear(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PublicationYearExtremeMax()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 10000;
-            string Error;
-
-            Error = ABook.ValidPubYear(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-
-        [TestMethod]
-        public void PublicationYearOK()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 1998;
-            ABook.PublicationYear = TestData;
-            Assert.AreEqual(TestData, ABook.PublicationYear);
-        }
-
-        // Publication Year End //
-
-        // Edition //
-
-        [TestMethod]
-        public void EditionOK()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 1;
-            ABook.Edition = TestData;
-            Assert.AreEqual(TestData, ABook.Edition);
-        }
-
-        [TestMethod]
-        public void EditionExtremeMin()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = -100;
-            string Error;
-            Error = ABook.ValidEdition(TestData);
-            Assert.AreNotEqual(Error, "");
-
-        }
-
-        [TestMethod]
-        public void EditionMinLessOne()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = -1;
-            string Error;
-            Error = ABook.ValidEdition(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-
-        [TestMethod]
-        public void EditionMin()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 0;
-            string Error;
-
-            Error = ABook.ValidEdition(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void EditionMinPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 1;
-            string Error;
-
-            Error = ABook.ValidEdition(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void EditionMaxLessOne()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 0;
-            string Error;
-
-            Error = ABook.ValidEdition(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void EditionMax()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 1;
-            string Error;
-
-            Error = ABook.ValidEdition(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void EditionMaxPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 2;
-            string Error;
-
-            Error = ABook.ValidEdition(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void EditionMid()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 1;
-            string Error;
-
-            Error = ABook.ValidEdition(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void EditionExtremeMax()
-        {
-            clsBook ABook = new clsBook();
-            Int32 TestData;
-            TestData = 100;
-            string Error;
-
-            Error = ABook.ValidEdition(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        // Edition end //
-
-        // Book Price //
-
-        [TestMethod]
-        public void BookPriceOK()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 48.28m;
-            ABook.BookPrice = TestData;
-            Assert.AreEqual(TestData, ABook.BookPrice);
-        }
-
-        [TestMethod]
-        public void BookPriceExtremeMin()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = -1.00m;
-            string Error;
-            Error = ABook.ValidBookPrice(TestData);
-            Assert.AreNotEqual(Error, "");
-
-        }
-
-        [TestMethod]
-        public void BookPriceMinLessOne()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 0.00m;
-            string Error;
-            Error = ABook.ValidBookPrice(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-
-        [TestMethod]
-        public void BookPriceMin()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 0.01m;
-            string Error;
-
-            Error = ABook.ValidBookPrice(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookPriceMinPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 0.02m;
-            string Error;
-
-            Error = ABook.ValidBookPrice(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookPriceMaxLessOne()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 499.99m;
-            string Error;
-
-            Error = ABook.ValidBookPrice(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookPriceMax()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 500.00m;
-            string Error;
-
-            Error = ABook.ValidBookPrice(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookPriceMaxPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 500.01m;
-            string Error;
-
-            Error = ABook.ValidBookPrice(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookPriceYearMid()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 250.00m;
-            string Error;
-
-            Error = ABook.ValidBookPrice(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookPriceExtremeMax()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 10000.00m;
-            string Error;
-            Error = ABook.ValidBookPrice(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        // Book Price end //
-
-        // BookShelfNo  //
-
-
-        [TestMethod]
-        public void BookShelfNoOK()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 48.284m;
-            ABook.BookShelfNo = TestData;
-            Assert.AreEqual(TestData, ABook.BookShelfNo);
-        }
-
-        [TestMethod]
-        public void BookShelfNpExtremeMin()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = -1300.2131m;
-            string Error;
-            Error = ABook.ValidBookShelfNo(TestData);
-            Assert.AreNotEqual(Error, "");
-
-        }
-
-        [TestMethod]
-        public void BookShelfNoMinLessOne()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = -000.0001m;
-            string Error;
-            Error = ABook.ValidBookShelfNo(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-
-        [TestMethod]
-        public void BookShelfNoMin()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 000.0000m;
-            string Error;
-
-            Error = ABook.ValidBookShelfNo(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookShelfNoMinPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 000.0001m;
-            string Error;
-
-            Error = ABook.ValidBookShelfNo(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookShelfNoMaxLessOne()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 999.9998m;
-            string Error;
-
-            Error = ABook.ValidBookShelfNo(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookShelfNoMax()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 999.9999m;
-            string Error;
-
-            Error = ABook.ValidBookShelfNo(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookShelfNoMaxPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 1000.0000m;
-            string Error;
-
-            Error = ABook.ValidBookShelfNo(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookShelfNoMid()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 499.9995m;
-            string Error;
-
-            Error = ABook.ValidBookShelfNo(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookShelfNoExtremeMax()
-        {
-            clsBook ABook = new clsBook();
-            decimal TestData;
-            TestData = 11230.231m;
-            string Error;
-            Error = ABook.ValidBookShelfNo(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        // BookShelfNo end //
-
-        // Book Title //
-
-        [TestMethod]
-        public void BookTitleMinLessOne()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "";
-            string Error;
-
-            Error = ABook.ValidTitle(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookTitleMin()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "A";
-            string Error;
-
-            Error = ABook.ValidTitle(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookTitleMinPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "Aa";
-            string Error;
-
-            Error = ABook.ValidTitle(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookTitleMaxLessOne()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(49, 'A');
-            string Error;
-
-            Error = ABook.ValidTitle(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookTitleMax()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(50, 'A');
-            string Error;
-
-            Error = ABook.ValidTitle(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookTitleMaxPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(51, 'A');
-            string Error;
-
-            Error = ABook.ValidTitle(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookTitleMid()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(25, 'A');
-            string Error;
-
-            Error = ABook.ValidTitle(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookTitleExtremeMax()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(500, 'A');
-            string Error;
-
-            Error = ABook.ValidTitle(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void BookTitleOK()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "TestBookTitle";
-            ABook.BookTitle = TestData;
-            Assert.AreEqual(TestData, ABook.BookTitle);
-        }
-
-        // Book Title end // 
-
-        // Genre name //
-
-        [TestMethod]
-        public void GenreNameMinLessOne()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "";
-            string Error;
-
-            Error = ABook.ValidGenre(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void GenreNameMin()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "A";
-            string Error;
-
-            Error = ABook.ValidGenre(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void GenreNameMinPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "Aa";
-            string Error;
-
-            Error = ABook.ValidGenre(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void GenreNameMaxLessOne()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(49, 'A');
-            string Error;
-
-            Error = ABook.ValidGenre(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void GenreNameMax()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(50, 'A');
-            string Error;
-
-            Error = ABook.ValidGenre(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void GenreNameMaxPlusOne()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(51, 'A');
-            string Error;
-
-            Error = ABook.ValidGenre(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void GenreNameMid()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(25, 'A');
-            string Error;
-
-            Error = ABook.ValidGenre(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void GenreNameExtremeMax()
-        {
-            clsBook ABook = new clsBook();
-            string TestData = "";
-            TestData = TestData.PadRight(500, 'A');
-            string Error;
-
-            Error = ABook.ValidGenre(TestData);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void GenreNameOK()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "Drama";
-            ABook.GenreName = TestData;
-            Assert.AreEqual(TestData, ABook.GenreName);
-        }
-
-        // Genre name end //
-
-        /* ******** End Of TDD practice ******* */
         
         [TestMethod]
         public void FindOK()
@@ -1019,18 +192,6 @@ namespace BookStore_Testing
         }
         
         [TestMethod]
-        public void ValidOK()
-        {
-            clsBook ABook = new clsBook();
-            string TestData;
-            TestData = "BookName";
-            string Error;
-
-            Error = ABook.ValidAuthor(TestData);
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
         public void ListOK()
         {
             clsBook ABook = new clsBook();
@@ -1053,6 +214,8 @@ namespace BookStore_Testing
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
+        /* Author */
 
         [TestMethod]
         public void AuthorMinLessOne()
@@ -1184,5 +347,836 @@ namespace BookStore_Testing
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
+
+        /* Author End */
+
+        /* Title */
+
+        [TestMethod]
+        public void TitleMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = ""; //this should trigger an error
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TitleMin()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "A"; //this should be ok
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TitleMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "Aa"; //this should be ok
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void TitleMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "";
+            //genarate 50 times letter A
+            Title = Title.PadRight(49, 'A');//this should be ok
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TitleMax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "";
+            //genarate 50 times letter A
+            Title = Title.PadRight(50, 'A');//this should be ok
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TitleMid()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "";
+            //genarate 50 times letter A
+            Title = Title.PadRight(25, 'A');//this should be ok
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TitleMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "";
+            //genarate 50 times letter A
+            Title = Title.PadRight(51, 'A');//this should fail
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TitleExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Title = "";
+            //genarate 50 times letter A
+            Title = Title.PadRight(500, 'A');//this should fail
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        /* Title End */
+
+        /* Edition */
+
+        [TestMethod]
+        public void EditionMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = -1; //this should trigger an error
+            //covert int to string
+            string Edition = TestData.ToString(); 
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void EditionMin()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = 0; //this should be ok
+            //covert int to string
+            string Edition = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EditionMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = 1; //this should be ok
+            //covert int to string
+            string Edition = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void EditionMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = 0; //this should be ok
+            //covert int to string
+            string Edition = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EditionMax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = 1; //this should be ok
+            //covert int to string
+            string Edition = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EditionMid()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = 0; //this should be ok
+            //covert int to string
+            string Edition = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EditionMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = 2; //this should fail
+            //covert int to string
+            string Edition = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EditionExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = 10; //this should fail
+            //covert int to string
+            string Edition = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EditionExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = -10; //this should fail
+            //covert int to string
+            string Edition = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EditionInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Edition = "invalid"; //this should fail
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        /* Edition End */
+
+        /* PublicationYear */
+        
+        [TestMethod]
+        public void PublicationYearMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = 1799; //this should trigger an error
+            //Convert int to string
+            PublicationYear = Convert.ToString(TestData);
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void PublicationYearMin()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = 1800; //this should be ok
+            //Convert int to string
+            PublicationYear = Convert.ToString(TestData);
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void PublicationYearMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = 1801; //this should be ok
+            //Convert int to string
+            PublicationYear = Convert.ToString(TestData);
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void PublicationYearMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = (DateTime.Now.Year - 1); //this should be ok
+            //Convert int to string
+            PublicationYear = Convert.ToString(TestData);
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PublicationYearMax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = DateTime.Now.Year; //this should be ok
+            //Convert int to string
+            PublicationYear = Convert.ToString(TestData);
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PublicationYearMid()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = DateTime.Now.Year; //this should be ok
+            //Convert int to string
+            PublicationYear = Convert.ToString(TestData);
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PublicationYearMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = (DateTime.Now.Year + 1); //this should fail
+            //Convert int to string
+            PublicationYear = Convert.ToString(TestData);
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PublicationYearExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = (DateTime.Now.Year + 100); //this should fail
+            //Convert int to string
+            PublicationYear = Convert.ToString(TestData);
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PublicationYearExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            int TestData = (DateTime.Now.Year - 1000); //this should fail
+            //Convert int to string
+            PublicationYear = Convert.ToString(TestData);
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PublicationYearInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string PublicationYear = "invalid"; //this should fail
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        /* PublicationYear End */
+
+        /* Price */
+
+        [TestMethod]
+        public void PriceMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 0.00m; //this should trigger an error
+            //covert int to string
+            string Price = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void PriceMin()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 0.01m; //this should be ok
+            //covert int to string
+            string Price = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 0.02m; //this should be ok
+            //covert int to string
+            string Price = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void PriceMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 199.99m; //this should be ok
+            //covert int to string
+            string Price = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void PriceMax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 200.00m; //this should be ok
+            //covert int to string
+            string Price = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMid()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 100.00m; //this should be ok
+            //covert int to string
+            string Price = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 200.01m; //this should fail
+            //covert int to string
+            string Price = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 1000.00m; //this should fail
+            //covert int to string
+            string Price = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = -1000.00m; //this should fail
+            //covert int to string
+            string Price = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PriceInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string Price = "invalid"; //this should fail
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        /* Price End */
+
+
+        /* BookShelfNo */
+
+        [TestMethod]
+        public void BookShelfNoMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = -0000.001m; //this should trigger an error
+            //covert int to string
+            string BookShelfNo = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void BookShelfNoMin()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 0000.000m; //this should be ok
+            //covert int to string
+            string BookShelfNo = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BookShelfNoMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 0000.001m; //this should be ok
+            //covert int to string
+            string BookShelfNo = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void BookShelfNoMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 9999.998m; //this should be ok
+            //covert int to string
+            string BookShelfNo = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BookShelfNoax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 9999.999m; //this should be ok
+            //covert int to string
+            string BookShelfNo = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BookShelfNoMid()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 4500.450m; //this should be ok
+            //covert int to string
+            string BookShelfNo = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BookShelfNoMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 10000.000m; //this should fail
+            //covert int to string
+            string BookShelfNo = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BookShelfNoExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = 10000.100000m; //this should fail
+            //covert int to string
+            string BookShelfNo = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BookShelfNoExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            decimal TestData = -10000.10000m; //this should fail
+            //covert int to string
+            string BookShelfNo = TestData.ToString();
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BookShelfNoInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsBook ABook = new clsBook();
+            //string var to store any error msg
+            String Error = "";
+            //create some test data to pass to the method
+            string BookShelfNo = "invalid"; //this should fail
+            //invoke the method
+            Error = ABook.Valid(Author, Title, PublicationYear, Edition, Price, BookShelfNo);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        
+        /* BookShelfNo End */
+
     }
 }

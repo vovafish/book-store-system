@@ -149,102 +149,7 @@ namespace BookStoreClasses
             }
             
         }
-
-        public string ValidAuthor(string Author)
-        {
-            //function to check if validation works for Author
-            string Error = "";
-            //check if Author string is empty
-            if (Author == "")
-            {
-                Error = "The Author may not be blank";
-            }
-            //check if Length of Author is longer than 50 char
-            if (Author.Length > 50)
-            {
-                Error = "The Author must be 50 characters or less";
-            }
-            //return Error msg
-            return Error;
-        }
-
-        public string ValidPubYear(Int32 PubYear)
-        {
-            string Error = "";
-            //check if publication year less than 1700 or greater than 3001 if so return the error msg
-            if (PubYear <= 1700 || PubYear >= 3001)
-            {
-                Error = "Please enter valid publication year";
-            }
-            return Error;
-        }
-
-        public string ValidEdition(Int32 Edition)
-        {
-            string Error = "";
-            //is edition not equal to 1 or 0 return the error msg
-            if (Edition < 0 || Edition > 1)
-            {
-                Error = "The edition can be only 0 or 1";
-            }
-
-            return Error;
-        }
-
-        public string ValidBookPrice(decimal BookPrice)
-        {
-            string Error = "";
-            //if book price not less than 0.01  or greater than 500.00 reutrn the error msg 
-            if (BookPrice < 0.01m || BookPrice > 500.00m)
-            {
-                Error = "The book price is not valid";
-            }
-
-            return Error;
-        }
-
-        public string ValidBookShelfNo(decimal BookShelfNo)
-        {
-            string Error = "";
-            //if book shelf less than 0.0000 or greater than 999.9999 return the error msg
-            if (BookShelfNo < 0.0000m || BookShelfNo > 999.9999m)
-            {
-                Error = "The book shlef number is not valid";
-            }
-
-            return Error;
-        }
-
-        /* the same as validation for attribute Author */
-        public string ValidTitle(string BookTitle)
-        {
-            string Error = "";
-            if (BookTitle == "")
-            {
-                Error = "The Book Title may not be blank";
-            }
-            if (BookTitle.Length > 50)
-            {
-                Error = "The Book Title must be 50 characters or less";
-            }
-            return Error;
-        }
-
-        /* the same as validation for attribute Author */
-        public string ValidGenre(string GenreName)
-        {
-            string Error = "";
-            if (GenreName == "")
-            {
-                Error = "The Book Genre may not be blank";
-            }
-            if (GenreName.Length > 50)
-            {
-                Error = "The Book Genre must be 50 characters or less";
-            }
-            return Error;
-        }
-
+     
         public bool List()
         {
             //always return true
@@ -255,17 +160,110 @@ namespace BookStoreClasses
         {
             //craete a string var to store the errro
             string Error = "";
+            int DateTemp;
+            int EditionTemp;
+            decimal PriceTemp;
+            decimal BookShelfNo;
             //if the Author is blank
             if (author.Length == 0) 
             {
                 //record the error
                 Error += "The author may not be blank : ";
             }
+
             //if author is greater than 50 char
             if (author.Length > 50)
             {
-                Error += "The author must be less than 50 characters";
+                Error += "The author must be less than 50 characters : ";
             }
+
+            //if the Author is blank
+            if (title.Length == 0)
+            {
+                //record the error
+                Error += "The title may not be blank : ";
+            }
+
+            //if author is greater than 50 char
+            if (title.Length > 50)
+            {
+                //record the error
+                Error += "The title must be less than 50 characters : ";
+            }
+
+            try
+            {
+                //copy the edition value to the EditionTemp variable
+                EditionTemp = Convert.ToInt32(edition);
+                if (EditionTemp < 0 || EditionTemp > 1)
+                {
+                    //record the error
+                    Error += "The edition must be between 0 and 1 : ";
+                }
+            }
+            catch
+            {
+
+                //record the error
+                Error += "The edition was not a valid number : ";
+            }
+
+            try
+            {
+                //copy the edition value to the EditionTemp variable
+                PriceTemp = Convert.ToDecimal(price);
+                if (PriceTemp < 0.01m || PriceTemp > 200.00m)
+                {
+                    //record the error
+                    Error += "The price must be 0.01 or higher : ";
+                }
+            }
+            catch
+            {
+
+                //record the error
+                Error += "The price was not a valid value : ";
+            }
+
+            try
+            {
+                //copy the edition value to the EditionTemp variable
+                BookShelfNo = Convert.ToDecimal(bookShelfNo);
+                if (BookShelfNo < 0000.000m || BookShelfNo > 9999.999m)
+                {
+                    //record the error
+                    Error += "The book shelf number must be between 0000.00 and 9999.99 : ";
+                }
+            }
+            catch
+            {
+
+                //record the error
+                Error += "The book shelf number was not a valid value : ";
+            }
+            
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToInt32(publicationYear);
+                if (DateTemp < 1800)
+                {
+                    //record the error
+                    Error += "The date cannot be before 1800th : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Year)
+                {
+                    //record the error
+                    Error += "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error += "The date was not a valid date : ";
+            }
+            
             //return any error msg
             return Error;
         }
