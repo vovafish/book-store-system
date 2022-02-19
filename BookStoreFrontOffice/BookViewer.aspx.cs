@@ -18,6 +18,12 @@ public partial class BookViewer : System.Web.UI.Page
         ABook = (clsBook)Session["ABook"];
         //display the house number for this entry
         Response.Write(ABook.Author);
+        Response.Write(ABook.BookTitle);
+        Response.Write(ABook.BookPrice);
+        Response.Write(ABook.Edition);
+        Response.Write(ABook.PublicationYear);
+        Response.Write(ABook.GenreName);
+        Response.Write(ABook.BookShelfNo);
         
     }
 }

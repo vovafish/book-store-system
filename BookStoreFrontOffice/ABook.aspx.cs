@@ -16,11 +16,44 @@ public partial class ABook : System.Web.UI.Page
         //create a new instance of the class
         clsBook ABook = new clsBook();
         //capture the author
-        ABook.Author = txtAuthor.Text;
-        //store the author in the session object
-        Session["ABook"] = ABook;
-        //redirect to the page
-        Response.Redirect("BookViewer.aspx");
+        string Author = txtAuthor.Text;
+        //capture the title
+        string BookTitle = txtTitle.Text;
+        //capture the author
+        string PublicationYear = txtPubYear.Text;
+        //capture the author
+        string Edition = txtEdition.Text;
+        //capture the author
+        string Price = txtPrice.Text;
+        //capture the author
+        string BookShelfNo = txtShelfNo.Text;
+
+        string Error = "";
+        Error = ABook.Valid(Author, BookTitle, PublicationYear, Edition, Price, BookShelfNo);
+        if (Error == "")
+        {
+            //capture the author
+            ABook.Author = Author;
+            //capture the title
+            ABook.BookTitle = BookTitle;
+            //capture the PubYear
+            ABook.PublicationYear = int.Parse(PublicationYear);
+            //capture the book shelf no
+            ABook.BookShelfNo = decimal.Parse(BookShelfNo);
+            //capture the price
+            ABook.BookPrice = decimal.Parse(Price);
+            //capture the edition
+            ABook.Edition = int.Parse(Edition);
+            //store the author in the session object
+            Session["ABook"] = ABook;
+            //redirect to the page
+            Response.Redirect("BookViewer.aspx");
+        }
+        else
+        {
+            //display the error msg
+            lblError.Text = Error;
+        }
         
     }
 
