@@ -164,31 +164,49 @@ namespace BookStoreClasses
             int EditionTemp;
             decimal PriceTemp;
             decimal BookShelfNo;
-            //if the Author is blank
-            if (author.Length == 0) 
+
+            try
             {
+                //if the Author is blank
+                if (author.Length == 0)
+                {
+                    //record the error
+                    Error += "The author may not be blank : ";
+                }
+                //if the Author is blank
+                if (author.Length == 50)
+                {
+                    //record the error
+                    Error += "The author must be less than 50 characters : ";
+                }
+            }
+            catch 
+            {
+
                 //record the error
-                Error += "The author may not be blank : ";
+                Error += "The author must be correct format : ";
             }
 
-            //if author is greater than 50 char
-            if (author.Length > 50)
+            try
             {
-                Error += "The author must be less than 50 characters : ";
-            }
+                //if the title is blank
+                if (title.Length == 0)
+                {
+                    //record the error
+                    Error += "The title may not be blank : ";
+                }
 
-            //if the Author is blank
-            if (title.Length == 0)
+                //if title is greater than 50 char
+                if (title.Length > 50)
+                {
+                    //record the error
+                    Error += "The title must be less than 50 characters : ";
+                }
+            }
+            catch 
             {
                 //record the error
-                Error += "The title may not be blank : ";
-            }
-
-            //if author is greater than 50 char
-            if (title.Length > 50)
-            {
-                //record the error
-                Error += "The title must be less than 50 characters : ";
+                Error += "The titke must be correct format : ";
             }
 
             try
@@ -229,10 +247,10 @@ namespace BookStoreClasses
             {
                 //copy the edition value to the EditionTemp variable
                 BookShelfNo = Convert.ToDecimal(bookShelfNo);
-                if (BookShelfNo < 0000.000m || BookShelfNo > 9999.999m)
+                if (BookShelfNo < 0000.0000m || BookShelfNo > 9999.9999m)
                 {
                     //record the error
-                    Error += "The book shelf number must be between 0000.00 and 9999.99 : ";
+                    Error += "The book shelf number must be between 0000.0000 and 9999.9999 : ";
                 }
             }
             catch
