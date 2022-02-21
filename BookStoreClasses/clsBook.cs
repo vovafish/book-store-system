@@ -174,10 +174,10 @@ namespace BookStoreClasses
                     Error += "The author may not be blank : ";
                 }
                 //if the Author is blank
-                if (author.Length == 50)
+                if (author.Length > 50)
                 {
                     //record the error
-                    Error += "The author must be less than 50 characters : ";
+                    Error += "The author must be 50 characters or less : ";
                 }
             }
             catch 
