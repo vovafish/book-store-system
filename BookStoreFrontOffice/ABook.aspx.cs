@@ -7,7 +7,27 @@ public partial class ABook : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        //if this is the first time the page is displayed
+        if (IsPostBack == false)
+        {
+            //update the list box
+            DisplayBooks();
+        }
+
+    }
+
+    void DisplayBooks()
+    {
+        //create an instance of the ??? Collection * simplified code *
+        clsBookCollection Books = new clsBookCollection();
+        //set the data source to the list of ??? on the collection
+        lstBooks.DataSource = Books.BookList;
+        //set the name of the primary key
+        lstBooks.DataValueField = "BookId";
+        //set the data field to display
+        lstBooks.DataTextField = "BookTitle";
+        //bind the data to the list
+        lstBooks.DataBind();
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
