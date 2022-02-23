@@ -53,6 +53,7 @@
             <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
         </div>
+            <asp:ListBox ID="lstBooks" runat="server" Height="111px" Width="158px"></asp:ListBox>
     </form>
 </body>
 </html>
