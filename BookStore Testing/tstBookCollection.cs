@@ -175,5 +175,45 @@ namespace BookStore_Testing
             //test to see that two values are the same
             Assert.AreEqual(AllBooks.ThisBook, TestItem);
         }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsBookCollection AllBooks = new clsBookCollection();
+            //create the item of test data
+            clsBook TestItem = new clsBook();
+            //var to store the primary key
+            int PrimaryKey = 0;
+            //set its properties
+           // TestItem.BookId = 1;
+            TestItem.Author = "Lee One";
+            TestItem.BookPrice = 19.99m;
+            TestItem.BookTitle = "Shape of Voice";
+            TestItem.Edition = 0;
+            TestItem.BookShelfNo = 144.002m;
+            TestItem.GenreName = "Drama";
+            //set ThisBook to the test data
+            AllBooks.ThisBook = TestItem;
+            //add the record
+            PrimaryKey = AllBooks.Add();
+            //set the Primary key of the test data
+            TestItem.BookId = PrimaryKey;
+            //modify the test data
+            TestItem.Author = "Lee OneChaned";
+            TestItem.BookPrice = 3.99m;
+            TestItem.BookTitle = "Shape of VoiceChaned";
+            TestItem.Edition = 1;
+            TestItem.BookShelfNo = 133.002m;
+            TestItem.GenreName = "DramaChaned";
+            //set the record based on the new test data
+            AllBooks.ThisBook = TestItem;
+            //update the record   
+            AllBooks.Update();
+            //find the record 
+            AllBooks.ThisBook.Find(PrimaryKey);
+            //test to see ThisBook mathces the test data
+            Assert.AreEqual(AllBooks.ThisBook, TestItem);
+        }
     }
 }

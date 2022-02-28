@@ -107,5 +107,25 @@ namespace BookStoreClasses
             //execute the stored procedure 
             DB.Execute("sproc_tblBook_Delete");
         }
+
+        public void Update()
+        {
+            //update an existing record based on the value of the thisBook
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@BookId", mThisBook.BookId);
+            DB.AddParameter("@Author", mThisBook.Author);
+            DB.AddParameter("@Title", mThisBook.BookTitle);
+            DB.AddParameter("@EditionNo", mThisBook.Edition);
+            DB.AddParameter("@PubYear", mThisBook.PublicationYear);
+            DB.AddParameter("@Price", mThisBook.BookPrice);
+            DB.AddParameter("@ShelfNo", mThisBook.BookShelfNo);
+            DB.AddParameter("@Genre", mThisBook.GenreName);
+            //execute the query returning the primary key value
+            DB.Execute("sproc_tblBook_Update");
+
+            
+        }
     }
 }
