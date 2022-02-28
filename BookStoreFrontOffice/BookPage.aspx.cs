@@ -105,5 +105,26 @@ public partial class ABook : System.Web.UI.Page
         Response.Redirect("AddNewBook.aspx");
     }
 
-   
+
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //var to store the primary key value of the record to be delete
+        Int32 BookId;
+        //if a record has be selected from the list
+        if (lstBooks.SelectedIndex != -1)
+        {
+            //get the primary key value of the record to delete
+            BookId = Convert.ToInt32(lstBooks.SelectedValue);
+            //store the data in the session object
+            Session["BookId"] = BookId;
+            //redirect to the delete page
+            Response.Redirect("BookDelete.aspx");
+        }
+        else //if no records has be selected
+        {
+            //display an error;
+            lblError.Text = "Plese select a record to delete from the list";
+        }
+    }
 }

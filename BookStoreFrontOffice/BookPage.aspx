@@ -15,6 +15,7 @@
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
             <asp:Button ID="btnApply" runat="server" Text="Apply" />
             <asp:Button ID="Button1" runat="server" Text="Display" ValidateRequestMode="Enabled" />
+            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
         <div>
             <asp:Label ID="Label1" runat="server" Text="BookId"></asp:Label>
             <asp:TextBox ID="txtBookId" runat="server"></asp:TextBox>

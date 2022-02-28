@@ -96,5 +96,16 @@ namespace BookStoreClasses
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblBook_Insert");
         }
+
+        public void Delete()
+        {
+            //delete the record pointed by the thisBook
+            //connect to the DB
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@BookId", mThisBook.BookId);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblBook_Delete");
+        }
     }
 }

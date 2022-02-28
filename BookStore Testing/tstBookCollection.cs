@@ -139,6 +139,39 @@ namespace BookStore_Testing
             TestItem.BookId = PrimaryKey;
             //find the record   
             AllBooks.ThisBook.Find(PrimaryKey);
+            //delete the record 
+            AllBooks.Delete();
+            //now find the record
+            Boolean Found = AllBooks.ThisBook.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsBookCollection AllBooks = new clsBookCollection();
+            //create the item of test data
+            clsBook TestItem = new clsBook();
+            //var to store the primary key
+            int PrimaryKey = 0;
+            //set its properties
+            TestItem.BookId = 1;
+            TestItem.Author = "Lee One";
+            TestItem.BookPrice = 19.99m;
+            TestItem.BookTitle = "Shape of Voice";
+            TestItem.Edition = 0;
+            TestItem.BookShelfNo = 144.002m;
+            TestItem.GenreName = "Drama";
+            //set ThisBook to the test data
+            AllBooks.ThisBook = TestItem;
+            //add the record
+            PrimaryKey = AllBooks.Add();
+            //set the Primary key of the test data
+            TestItem.BookId = PrimaryKey;
+            //find the record   
+            AllBooks.ThisBook.Find(PrimaryKey);
             //test to see that two values are the same
             Assert.AreEqual(AllBooks.ThisBook, TestItem);
         }
