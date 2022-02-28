@@ -92,8 +92,18 @@ public partial class ABook : System.Web.UI.Page
             txtEdition.Text = ABook.Edition.ToString();
             txtShelfNo.Text = ABook.BookShelfNo.ToString();
             txtPrice.Text = ABook.BookPrice.ToString();
-            ddlGenre.Text = ABook.GenreName;
+            txtGenre.Text = ABook.GenreName;
 
         }
     }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        //store -1 into the session object to indicate  this is a new record
+        Session["BookId"] = -1;
+        //redirect to the data entry page
+        Response.Redirect("AddNewBook.aspx");
+    }
+
+   
 }

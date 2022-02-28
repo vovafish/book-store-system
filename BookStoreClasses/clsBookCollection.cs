@@ -7,6 +7,8 @@ namespace BookStoreClasses
     {
         //private data member for the list
         List<clsBook> mBookList = new List<clsBook>();
+        //private data member thisBook
+        clsBook mThisBook = new clsBook();
         public List<clsBook> BookList
         {
             get
@@ -20,7 +22,18 @@ namespace BookStoreClasses
                 mBookList = value;
             }
         }
-        public clsBook ThisBook { get; set; }
+        public clsBook ThisBook
+        {
+            //return the private data
+            get
+            {
+                return mThisBook;
+            }
+            set
+            {
+                mThisBook = value;
+            }
+        }
         public int Count
         {
             get 
@@ -65,6 +78,23 @@ namespace BookStoreClasses
                 //point at the record
                 Index++;
             }
+        }
+
+        public int Add() 
+        {
+            //adds a new record to the DB based on the value of mThisAddress
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@Author", mThisBook.Author);
+            DB.AddParameter("@Title", mThisBook.BookTitle);
+            DB.AddParameter("@EditionNo", mThisBook.Edition);
+            DB.AddParameter("@PubYear", mThisBook.PublicationYear);
+            DB.AddParameter("@Price", mThisBook.BookPrice);
+            DB.AddParameter("@ShelfNo", mThisBook.BookShelfNo);
+            DB.AddParameter("@Genre", mThisBook.GenreName);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblBook_Insert");
         }
     }
 }

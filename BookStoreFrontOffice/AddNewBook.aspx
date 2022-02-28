@@ -1,21 +1,19 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ABook.aspx.cs" Inherits="ABook" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddNewBook.aspx.cs" Inherits="AddNewBook" %>
 
 <!DOCTYPE html>
 
-<%--THE FILE CREATED BY VLADIMIRS RIBAKOVS--%>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="css/style.css" rel="stylesheet" />
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-            <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" />
         <div>
+
+            <%--<div>
             <asp:Label ID="Label1" runat="server" Text="BookId"></asp:Label>
             <asp:TextBox ID="txtBookId" runat="server"></asp:TextBox>
-        </div>
+        </div>--%>
         <div>
             <asp:Label ID="lblAuthor" runat="server" Text="Author"></asp:Label>
             <asp:TextBox ID="txtAuthor" runat="server"></asp:TextBox>
@@ -42,9 +40,8 @@
         </div>
         <div>
             <asp:Label ID="Label7" runat="server" Text="Genre"></asp:Label>
-            <asp:DropDownList ID="ddlGenre" runat="server">
-                
-            </asp:DropDownList>
+            <asp:TextBox ID="txtGenre" runat="server"></asp:TextBox>
+        </div>
         </div>
         <div>
             <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
@@ -53,7 +50,6 @@
             <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
         </div>
-            <asp:ListBox ID="lstBooks" runat="server" Height="111px" Width="158px"></asp:ListBox>
     </form>
 </body>
 </html>
