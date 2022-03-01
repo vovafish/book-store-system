@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ABook.aspx.cs" Inherits="ABook" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BookPage.aspx.cs" Inherits="ABook" %>
 
 <!DOCTYPE html>
 
@@ -12,6 +12,11 @@
 <body>
     <form id="form1" runat="server">
             <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" />
+            <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
+            <asp:Button ID="btnApply" runat="server" Text="Apply" OnClick="btnApply_Click" style="height: 29px" />
+            <asp:Button ID="btnDisplay" runat="server" Text="Display" ValidateRequestMode="Enabled" OnClick="Button1_Click" />
+            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
+            <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
         <div>
             <asp:Label ID="Label1" runat="server" Text="BookId"></asp:Label>
             <asp:TextBox ID="txtBookId" runat="server"></asp:TextBox>
@@ -42,9 +47,7 @@
         </div>
         <div>
             <asp:Label ID="Label7" runat="server" Text="Genre"></asp:Label>
-            <asp:DropDownList ID="ddlGenre" runat="server">
-                
-            </asp:DropDownList>
+            <asp:TextBox ID="txtGenre" runat="server"></asp:TextBox>
         </div>
         <div>
             <asp:Label ID="lblError" runat="server" Text=""></asp:Label>

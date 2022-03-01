@@ -7,6 +7,8 @@ namespace BookStoreClasses
     {
         //private data member for the list
         List<clsBook> mBookList = new List<clsBook>();
+        //private data member thisBook
+        clsBook mThisBook = new clsBook();
         public List<clsBook> BookList
         {
             get
@@ -20,7 +22,18 @@ namespace BookStoreClasses
                 mBookList = value;
             }
         }
-        public clsBook ThisBook { get; set; }
+        public clsBook ThisBook
+        {
+            //return the private data
+            get
+            {
+                return mThisBook;
+            }
+            set
+            {
+                mThisBook = value;
+            }
+        }
         public int Count
         {
             get 
@@ -36,16 +49,27 @@ namespace BookStoreClasses
 
         public clsBookCollection()
         {
-            //var for the index
-            int Index = 0;
-            //var to store the record count 
-            int RecordsCount = 0;
+            
             //objcet for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
             DB.Execute("sproc_tblBook_SelectAll");
+            //populate the array list with data table
+            PopulateArray(DB);
+            
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populate the array list based on the data table in the parameter DB
+            //var for the index
+            int Index = 0;
+            //var to store the record count 
+            int RecordsCount = 0;
             //get the count of records
             RecordsCount = DB.Count;
+            //clear the private array list
+            mBookList = new List<clsBook>();
             //while there are records to process
             while (Index < RecordsCount)
             {
@@ -65,6 +89,67 @@ namespace BookStoreClasses
                 //point at the record
                 Index++;
             }
+        }
+
+        public int Add() 
+        {
+            //adds a new record to the DB based on the value of mThisAddress
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@Author", mThisBook.Author);
+            DB.AddParameter("@Title", mThisBook.BookTitle);
+            DB.AddParameter("@EditionNo", mThisBook.Edition);
+            DB.AddParameter("@PubYear", mThisBook.PublicationYear);
+            DB.AddParameter("@Price", mThisBook.BookPrice);
+            DB.AddParameter("@ShelfNo", mThisBook.BookShelfNo);
+            DB.AddParameter("@Genre", mThisBook.GenreName);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblBook_Insert");
+        }
+
+        public void Delete()
+        {
+            //delete the record pointed by the thisBook
+            //connect to the DB
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@BookId", mThisBook.BookId);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblBook_Delete");
+        }
+
+        public void Update()
+        {
+            //update an existing record based on the value of the thisBook
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@BookId", mThisBook.BookId);
+            DB.AddParameter("@Author", mThisBook.Author);
+            DB.AddParameter("@Title", mThisBook.BookTitle);
+            DB.AddParameter("@EditionNo", mThisBook.Edition);
+            DB.AddParameter("@PubYear", mThisBook.PublicationYear);
+            DB.AddParameter("@Price", mThisBook.BookPrice);
+            DB.AddParameter("@ShelfNo", mThisBook.BookShelfNo);
+            DB.AddParameter("@Genre", mThisBook.GenreName);
+            //execute the query returning the primary key value
+            DB.Execute("sproc_tblBook_Update");
+
+            
+        }
+
+        public void ReportByTitle(string Title)
+        {
+            //filter the records based on a full or partial title
+            //connect to the DB
+            clsDataConnection DB = new clsDataConnection();
+            //send the title parameter to the DB
+            DB.AddParameter("@Title", Title);
+            //execute the stored procedure
+            DB.Execute("sproc_tblBook_FilterByTitle");
+            //populate the array list with the data table
+            PopulateArray(DB);
         }
     }
 }
