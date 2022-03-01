@@ -49,16 +49,27 @@ namespace BookStoreClasses
 
         public clsBookCollection()
         {
-            //var for the index
-            int Index = 0;
-            //var to store the record count 
-            int RecordsCount = 0;
+            
             //objcet for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
             DB.Execute("sproc_tblBook_SelectAll");
+            //populate the array list with data table
+            PopulateArray(DB);
+            
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populate the array list based on the data table in the parameter DB
+            //var for the index
+            int Index = 0;
+            //var to store the record count 
+            int RecordsCount = 0;
             //get the count of records
             RecordsCount = DB.Count;
+            //clear the private array list
+            mBookList = new List<clsBook>();
             //while there are records to process
             while (Index < RecordsCount)
             {
@@ -126,6 +137,19 @@ namespace BookStoreClasses
             DB.Execute("sproc_tblBook_Update");
 
             
+        }
+
+        public void ReportByTitle(string Title)
+        {
+            //filter the records based on a full or partial title
+            //connect to the DB
+            clsDataConnection DB = new clsDataConnection();
+            //send the title parameter to the DB
+            DB.AddParameter("@Title", Title);
+            //execute the stored procedure
+            DB.Execute("sproc_tblBook_FilterByTitle");
+            //populate the array list with the data table
+            PopulateArray(DB);
         }
     }
 }

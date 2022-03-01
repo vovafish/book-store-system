@@ -13,8 +13,8 @@
     <form id="form1" runat="server">
             <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" />
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
-            <asp:Button ID="btnApply" runat="server" Text="Apply" />
-            <asp:Button ID="Button1" runat="server" Text="Display" ValidateRequestMode="Enabled" />
+            <asp:Button ID="btnApply" runat="server" Text="Apply" OnClick="btnApply_Click" style="height: 29px" />
+            <asp:Button ID="btnDisplay" runat="server" Text="Display" ValidateRequestMode="Enabled" OnClick="Button1_Click" />
             <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
             <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
         <div>
