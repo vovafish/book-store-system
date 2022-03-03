@@ -146,11 +146,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 5;
+            Int32 SupplierNo = 1;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.SupplierNo != 5)
+            if (ASupplier.SupplierNo != 1)
             {
                 OK = false;
             }
@@ -168,7 +168,7 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 5;
+            Int32 SupplierNo = 1;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
@@ -190,11 +190,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 5;
+            Int32 SupplierNo = 1;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.Address != Convert.ToString("Canada"))
+            if (ASupplier.Address != Convert.ToString("1 Book Lane, Booksford"))
             {
                 OK = false;
             }
@@ -212,11 +212,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 5;
+            Int32 SupplierNo = 1;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.Postcode != Convert.ToString("OT4 5TH"))
+            if (ASupplier.Postcode != Convert.ToString("BK120PG"))
             {
                 OK = false;
             }
@@ -234,11 +234,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 5;
+            Int32 SupplierNo = 1;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.Description != Convert.ToString("A Description"))
+            if (ASupplier.Description != Convert.ToString("The number 1 bookshop in bookfords"))
             {
                 OK = false;
             }
@@ -256,11 +256,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 5;
+            Int32 SupplierNo = 1;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.PhoneNumber != Convert.ToString("07892938445"))
+            if (ASupplier.PhoneNumber != Convert.ToString("07453457689"))
             {
                 OK = false;
             }
@@ -278,11 +278,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 5;
+            Int32 SupplierNo = 1;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.Cost != Convert.ToDouble(5.23))
+            if (ASupplier.Cost != Convert.ToDouble(111))
             {
                 OK = false;
             }

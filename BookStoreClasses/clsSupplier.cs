@@ -16,16 +16,32 @@ namespace BookStoreClasses
         //public find property
         public bool Find(int SupplierNo)
         {
-            //set the private data members to the test data value
-            mSupplierNo = 5;
-            mName = Convert.ToString("Book Depot");
-            mAddress = Convert.ToString("Canada");
-            mPostcode = Convert.ToString("OT4 5TH");
-            mCost = Convert.ToDouble(5.23);
-            mDescription = Convert.ToString("A Description");
-            mPhoneNumber = Convert.ToString("07892938445");
-            //set to always return true
-            return true;
+            //create instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the Supplier No to search for
+            DB.AddParameter("@SupplierNo", SupplierNo);
+            //execute the sproc
+            DB.Execute("sproc_tblSupplier_FilterBySupplierNo");
+            //if one record is found (there should be 1 or 0)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the variable private data members
+                mSupplierNo =  Convert.ToInt32(DB.DataTable.Rows[0]["SupplierNo"]);
+                mName =        Convert.ToString(DB.DataTable.Rows[0]["Name"]);
+                mAddress =     Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mPostcode =    Convert.ToString(DB.DataTable.Rows[0]["Postcode"]);
+                mCost =        Convert.ToDouble(DB.DataTable.Rows[0]["Cost"]);
+                mDescription = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
+                mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
+                //return that everything is ok
+                return true;
+            }
+            //if not record is found
+            else
+            {
+                //return false that there is a problem
+                return false;
+            }
         }
 
         //public data memeber for address no property
