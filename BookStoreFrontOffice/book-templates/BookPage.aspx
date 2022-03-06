@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="../styles/book-css/main.min.css" rel="stylesheet" />
     <title></title>
 </head>
 <body>
