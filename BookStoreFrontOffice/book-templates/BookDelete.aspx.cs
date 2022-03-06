@@ -36,4 +36,9 @@ public partial class Delete : System.Web.UI.Page
         //redirect back to the main page
         Response.Redirect("BookPage.aspx");
     }
+
+    protected void btnNo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("BookPage.aspx");
+    }
 }

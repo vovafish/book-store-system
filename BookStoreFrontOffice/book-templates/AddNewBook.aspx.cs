@@ -115,4 +115,9 @@ public partial class AddNewBook : System.Web.UI.Page
         txtPrice.Text = BookList.ThisBook.BookPrice.ToString();
         txtGenre.Text = BookList.ThisBook.GenreName;
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("BookPage.aspx");
+    }
 }

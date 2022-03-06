@@ -72,7 +72,7 @@ public partial class ABook : System.Web.UI.Page
             BookId = Convert.ToString(MyBookList.BookList[Index].BookId);
             //ShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
             //set up a new object of class list item 
-            ListItem NewItem = new ListItem(Author + " " + Edition + " " + Title, BookId);
+            ListItem NewItem = new ListItem(Author + " " + Edition + " " + Title + " " + BookId);
             //add the new item to the list
             lstBooks.Items.Add(NewItem);
             //increment the index
@@ -134,18 +134,25 @@ public partial class ABook : System.Web.UI.Page
         clsBook ABook = new clsBook();
         int BookId;
         Boolean Found = false;
-        BookId = Convert.ToInt32(txtBookId.Text);
-        Found = ABook.Find(BookId);
-        if (Found == true)   
+        try
         {
-            txtAuthor.Text = ABook.Author;
-            txtTitle.Text = ABook.BookTitle;
-            txtPubYear.Text = ABook.PublicationYear.ToString();
-            txtEdition.Text = ABook.Edition.ToString();
-            txtShelfNo.Text = ABook.BookShelfNo.ToString();
-            txtPrice.Text = ABook.BookPrice.ToString();
-            txtGenre.Text = ABook.GenreName;
+            BookId = Convert.ToInt32(txtBookId.Text);
+            Found = ABook.Find(BookId);
+            if (Found == true)
+            {
+                txtAuthor.Text = ABook.Author;
+                txtTitle.Text = ABook.BookTitle;
+                txtPubYear.Text = ABook.PublicationYear.ToString();
+                txtEdition.Text = ABook.Edition.ToString();
+                txtShelfNo.Text = ABook.BookShelfNo.ToString();
+                txtPrice.Text = ABook.BookPrice.ToString();
+                txtGenre.Text = ABook.GenreName;
 
+            }
+        }
+        catch 
+        {
+            lblError.Text = "Please enter a valid PK";
         }
     }
 
