@@ -5,7 +5,6 @@
     This is server name 
     v00egd00001l.lec-admin.dmu.ac.uk
 --%>
-
 <%--@VR--%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -36,13 +35,14 @@
                     </div>
                 </header>
                 <main class="main">
-                    <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
-                    <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListBox ID="lstBooks" runat="server" class="book-list"></asp:ListBox>
+                    <asp:DropDownList ID="DropDownList1" runat="server" class="btn btn-feature">
                       <asp:ListItem Selected="True" Value="Featured"> Featured </asp:ListItem>
                       <asp:ListItem Value="PriceLowToHigh"> Price: Low To High </asp:ListItem>
                       <asp:ListItem Value="PriceHighToLow"> Price: High To Low </asp:ListItem>
                       <asp:ListItem Value="Newest Arrivals"> Newest Arrivals </asp:ListItem>
                     </asp:DropDownList>
+                    <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
                 </main>
                 <footer class="footer">
                     <nav>

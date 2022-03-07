@@ -10,7 +10,7 @@ html {
 }
 .btn {
   width: fit-content;
-  padding: 5px;
+  padding: 3px 6px;
 }
 .container {
   display: grid;
@@ -26,7 +26,7 @@ html {
   grid-template-columns: 1fr 4fr 1fr;
   grid-gap: 0 15px;
   align-items: center;
-  padding: 20px 0 100px 0;
+  padding: 20px 20px 50px 20px;
   min-height: 250px;
 }
 .container .header :nth-child(2) {
@@ -39,5 +39,18 @@ html {
   margin-top: 10px;
 }
 .container .main {
-  padding: 50px 0;
+  padding: 50px 20px;
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+  grid-gap: 0 15px;
+}
+.container .footer {
+  padding: 50px 20px;
+}
+.container .btn-feature {
+  width: 89px;
+  height: fit-content;
+}
+.container .book-list {
+  min-height: 243px;
 }
