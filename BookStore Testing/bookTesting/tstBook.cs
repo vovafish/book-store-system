@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-/* THE FILE CREATED BY VLADIMIRS RIBAKOVS */
+/* @VR */
 
 namespace BookStore_Testing
 {

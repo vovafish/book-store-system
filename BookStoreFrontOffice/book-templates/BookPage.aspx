@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="../styles/book-css/main.min.css" rel="stylesheet" />
-    <title></title>
+    <title>Book Page</title>
 </head>
 <body>
     <form id="form1" runat="server">

@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Delete Book</title>
+    <link href="../styles/book-css/main.min.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">

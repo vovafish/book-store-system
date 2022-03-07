@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
+/* @VR */
+
 namespace BookStore_Testing
 {
     [TestClass]

@@ -1,0 +1,26 @@
+﻿.container {
+    display: grid;
+
+    .header {
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-gap: 0 15px;
+        align-items: center;
+        padding: 20px 0 100px 0;
+        min-height: 250px;
+        div {
+        }
+
+        :nth-child(2) {
+            text-align: center;
+        }
+
+        img {
+            width: 200px;
+        }
+
+        div > p {
+            margin-top: 10px;
+        }
+    }
+}
