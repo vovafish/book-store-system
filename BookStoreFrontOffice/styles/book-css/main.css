@@ -8,8 +8,18 @@ html {
   margin: auto;
   background-color: aqua;
 }
+.btn {
+  width: fit-content;
+  padding: 5px;
+}
 .container {
   display: grid;
+}
+.container .top-nav {
+  display: grid;
+  justify-content: end;
+  background-color: darkgray;
+  padding: 20px 5px;
 }
 .container .header {
   display: grid;
@@ -27,4 +37,7 @@ html {
 }
 .container .header div > p {
   margin-top: 10px;
+}
+.container .main {
+  padding: 50px 0;
 }

@@ -10,6 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Get My Books</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="styles/book-css/main.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -17,6 +18,10 @@
         <div>
             <div class="wrap">
                <div class="container">
+                   
+                   <div class="top-nav">
+                        <asp:Button ID="btnLogin" runat="server" Text="Login" class="btn"/>
+                   </div>
                     <header class="header">
                     <div>
                         <img src="images/book-img/logo.jfif" alt="logo" />
@@ -26,7 +31,8 @@
                         <p>Feel free to find your favourite book</p>
                     </div>
                     <div>
-                        <asp:Button ID="btnLogin" runat="server" Text="Login" class="btn"/>
+                        <a>Link1</a>
+                        <a>Lik2</a>
                     </div>
                 </header>
                 <main class="main">
