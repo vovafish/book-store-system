@@ -17,17 +17,40 @@ public partial class ASupplier : System.Web.UI.Page
     {
         //create a new instance of clsSupplier
         clsSupplier ASupplier = new clsSupplier();
-        //capture the name
-        ASupplier.Name = txtName.Text;
-        ASupplier.Address = txtAddress.Text;
-        ASupplier.Postcode = txtPostcode.Text;
-        ASupplier.PhoneNumber = txtPhoneNumber.Text;
-        ASupplier.Description = txtDescription.Text;
-        ASupplier.Cost = Convert.ToDouble(txtCost.Text);
-        //Store address in session object
-        Session["ASupplier"] = ASupplier;
-        //redirect to viewer page
-        Response.Redirect("SupplierViewer.aspx");
+        //capture the inputs
+        string Name = txtName.Text;
+        string Address = txtAddress.Text;
+        string Postcode = txtPostcode.Text;
+        string PhoneNumber = txtPhoneNumber.Text;
+        string Description = txtDescription.Text;
+        string Cost = txtCost.Text;
+        //variable to store error message
+        string Error = "";
+        //validate the data
+        Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+        //if there is no error
+        if (Error =="")
+        {
+            //capture the data
+            ASupplier.Name = Name;
+            ASupplier.Address = Address;
+            ASupplier.Postcode = Postcode;
+            ASupplier.PhoneNumber = PhoneNumber;
+            ASupplier.Description = Description;
+            ASupplier.Cost = Convert.ToDouble(Cost);
+            //Store address in session object
+            Session["ASupplier"] = ASupplier;
+            //redirect to viewer page
+            Response.Redirect("SupplierViewer.aspx");
+        }
+        else
+        {
+            //display error message
+            lblError.Text = Error;
+            lblError.Visible = true;
+            lblError.ForeColor = System.Drawing.Color.Red;
+        }
+        
 
     }
 
