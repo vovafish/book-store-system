@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,6 +12,10 @@ public partial class _Default : System.Web.UI.Page
     //this function handels the load event for the paga
     protected void Page_Load(object sender, EventArgs e)
     {
+        
+
+        
+        
         //clear any existing error messages
         lblError.Text = "";
         //if this is the first time the page has been displayed
@@ -54,9 +59,10 @@ public partial class _Default : System.Web.UI.Page
         //var to store the street name
         string Edition;
         //var to store the post code
-        string Title;
-        //var to store the primary key value
-        string BookId;
+        string BookPrice;
+        string BookShelfNo;
+        string GenreName;
+
         //var to store the index
         // string ShelfNo;
         Int32 Index = 0;
@@ -75,11 +81,17 @@ public partial class _Default : System.Web.UI.Page
             Edition = Convert.ToString(MyBookList.BookList[Index].Edition);
             //get the post code from the query results
             Title = Convert.ToString(MyBookList.BookList[Index].BookTitle);
+            BookPrice = Convert.ToString(MyBookList.BookList[Index].BookPrice);
+           // BookShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
+            GenreName = Convert.ToString(MyBookList.BookList[Index].GenreName);
             //get the address no from the query results
-            BookId = Convert.ToString(MyBookList.BookList[Index].BookId);
-            //ShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
             //set up a new object of class list item 
-            ListItem NewItem = new ListItem(Author + " " + Edition + " " + Title + " " + BookId);
+            ListItem NewItem = new ListItem("Author: " + Author + " |" +
+                                            " Title: " + Title + " |" +
+                                            " Edition: " + Edition + " |" +
+                                            " Price: " + BookPrice + " |" +
+                                            " Genre: " + GenreName
+                                            );
             //add the new item to the list
             lstBooks.Items.Add(NewItem);
             //increment the index
@@ -89,4 +101,15 @@ public partial class _Default : System.Web.UI.Page
         return RecordCount;
     }
 
+
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //var to store the record count
+        Int32 RecordCount;
+        //assign the results of the DisplayAddresses function to the record count var
+        RecordCount = DisplayBooks("");
+        //display the number of records found
+        lblError.Text = RecordCount + " records in the database";
+        
+    }
 }

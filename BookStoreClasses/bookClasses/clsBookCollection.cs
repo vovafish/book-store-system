@@ -59,6 +59,7 @@ namespace BookStoreClasses
             
         }
 
+
         void PopulateArray(clsDataConnection DB)
         {
             //populate the array list based on the data table in the parameter DB
@@ -149,6 +150,13 @@ namespace BookStoreClasses
             //execute the stored procedure
             DB.Execute("sproc_tblBook_FilterByTitle");
             //populate the array list with the data table
+            PopulateArray(DB);
+        }
+
+        public void PriceLowToHigh()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblBook_PriceLowToHigh");
             PopulateArray(DB);
         }
     }

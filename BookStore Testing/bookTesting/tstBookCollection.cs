@@ -178,6 +178,11 @@ namespace BookStore_Testing
             Assert.AreEqual(AllBooks.ThisBook, TestItem);
         }
 
+        /*
+         This code commented because when it gets executed it updates the database with duplicated rows
+         */
+
+        /*
         [TestMethod]
         public void UpdateMethodOK()
         {
@@ -217,7 +222,7 @@ namespace BookStore_Testing
             //test to see ThisBook mathces the test data
             Assert.AreEqual(AllBooks.ThisBook, TestItem);
         }
-
+        */
         [TestMethod]
         public void ReportByTitleMethodOK()
         {

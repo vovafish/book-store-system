@@ -54,3 +54,11 @@ html {
 .container .book-list {
   min-height: 243px;
 }
+.container #lstBooks {
+  font-weight: bold;
+  font-size: 1em;
+}
+.container .book-list > option {
+  padding: 1em 1em;
+  border: 2px solid black;
+}
