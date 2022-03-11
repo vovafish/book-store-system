@@ -49,6 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bookTesting\tstClsOrderCollection.cs" />
+    <Compile Include="bookTesting\tstClsOrderLineCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="bookTesting\tstBook.cs" />
     <Compile Include="tstSupplier.cs" />
