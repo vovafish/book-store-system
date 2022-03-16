@@ -53,8 +53,9 @@
     <Compile Include="bookTesting\tstClsOrderLineCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="bookTesting\tstBook.cs" />
-    <Compile Include="tstSupplier.cs" />
+    <Compile Include="supplierTesting\tstSupplier.cs" />
     <Compile Include="bookTesting\tstBookCollection.cs" />
+    <Compile Include="supplierTesting\tstSupplierCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
