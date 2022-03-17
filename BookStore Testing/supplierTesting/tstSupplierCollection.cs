@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace BookStore_Testing.supplierTesting
+namespace BookStore_Testing
 {
     [TestClass]
     public class tstSupplierCollection
@@ -43,18 +43,6 @@ namespace BookStore_Testing.supplierTesting
             Assert.AreEqual(AllSuppliers.SupplierList, TestList);
         }
 
-        [TestMethod]
-        public void CountOk()
-        {
-            //create an instance of the class we want to create
-            clsSupplierCollection AllSuppliers = new clsSupplierCollection();
-            //int 32 test count
-            Int32 TestCount = 0;
-            //assign the data to the proeprty
-            AllSuppliers.Count = TestCount;
-            //test to see if it exists
-            Assert.AreEqual(AllSuppliers, TestCount);
-        }
 
         [TestMethod]
         public void ThisSupplierOk()
@@ -102,5 +90,7 @@ namespace BookStore_Testing.supplierTesting
             //test to see that the two values are the same
             Assert.AreEqual(AllSuppliers.Count, TestList.Count);
         }
+
+
     }
 }
