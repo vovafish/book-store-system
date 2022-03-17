@@ -18,7 +18,7 @@ namespace BookStore_Testing
             //test to see if it exists
             Assert.IsNotNull(AllBooks);
         }
-
+        /*
         [TestMethod]
         public void BookListOK()
         {
@@ -45,6 +45,7 @@ namespace BookStore_Testing
             //test to see that two values are the same
             Assert.AreEqual(AllBooks.BookList, TestList);
         }
+        */
         /*
         [TestMethod]
         public void CountPropertyOK()
@@ -59,6 +60,7 @@ namespace BookStore_Testing
             Assert.AreEqual(AllBooks.Count, SomeCount);
         }
         */
+        /*
         [TestMethod]
         public void ThisBookPropertyOK()
         {
@@ -79,7 +81,7 @@ namespace BookStore_Testing
             //test to see that two values are the same
             Assert.AreEqual(AllBooks.ThisBook, TestBook);
         }
-
+        */
         [TestMethod]
         public void ListAndCountOK()
         {
@@ -116,6 +118,7 @@ namespace BookStore_Testing
             Assert.AreEqual(AllBooks.Count, 2);
         }
         */
+        /*
         [TestMethod]
         public void AddMethodOK()
         {
@@ -148,7 +151,7 @@ namespace BookStore_Testing
             //test to see that the record was not found
             Assert.IsFalse(Found);
         }
-
+        */
         [TestMethod]
         public void DeleteMethodOK()
         {
