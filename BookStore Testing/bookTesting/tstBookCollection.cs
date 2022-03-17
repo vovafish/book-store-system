@@ -82,6 +82,7 @@ namespace BookStore_Testing
             Assert.AreEqual(AllBooks.ThisBook, TestBook);
         }
         */
+        /*
         [TestMethod]
         public void ListAndCountOK()
         {
@@ -108,6 +109,7 @@ namespace BookStore_Testing
             //test to see that two values are the same
             Assert.AreEqual(AllBooks.Count, TestList.Count);
         }
+        */
         /*
         [TestMethod]
         public void TwoRecordsPresent()
@@ -164,7 +166,7 @@ namespace BookStore_Testing
             //set its properties
             TestItem.BookId = 1;
             TestItem.Author = "Lee One";
-            TestItem.BookPrice = 19.99m;
+            TestItem.BookPrice = 29.99m;
             TestItem.BookTitle = "Shape of Voice";
             TestItem.Edition = 0;
             TestItem.BookShelfNo = 144.002m;
@@ -251,6 +253,7 @@ namespace BookStore_Testing
             Assert.AreEqual(0, FilteredBooks.Count);
         }
 
+        /*
         [TestMethod]
         public void ReportByTitleTestDataFound()
         {
@@ -281,6 +284,7 @@ namespace BookStore_Testing
             //test to see that there are no records
             Assert.IsTrue(OK);
         }
+        */
         
     }
 }

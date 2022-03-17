@@ -4,7 +4,9 @@
 <%--
     This is server name 
     v00egd00001l.lec-admin.dmu.ac.uk
---%><%--@VR--%>
+--%>
+
+<%--@VR--%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Get My Books</title>
@@ -13,13 +15,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <div class="wrap">
-               <div class="container">
-                   <div class="top-nav">
-                        <asp:Button ID="btnLogin" runat="server" Text="Login" class="btn"/>
-                   </div>
-                    <header class="header">
+        <div class="wrap">
+            <div class="container">
+                <div class="top-nav">
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" class="btn" OnClick="btnLogin_Click" />
+                </div>
+                <header class="header">
                     <div>
                         <img src="images/book-img/logo.jfif" alt="logo" />
                     </div>
@@ -35,10 +36,10 @@
                 <main class="main">
                     <asp:ListBox ID="lstBooks" runat="server" class="book-list"></asp:ListBox>
                     <asp:DropDownList ID="ddlSort" runat="server" class="btn btn-feature" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                      <asp:ListItem ID="featured" Selected="True" Value="Featured"> Featured </asp:ListItem>
-                      <asp:ListItem ID="priceLowToHigh" Value="PriceLowToHigh"> Price: Low To High </asp:ListItem>
-                      <asp:ListItem ID="priceHighToLow" Value="PriceHighToLow"> Price: High To Low </asp:ListItem>
-                      <asp:ListItem ID="newest" Value="Newest Arrivals"> Newest Arrivals </asp:ListItem>
+                        <asp:ListItem ID="featured" Selected="True" Value="Featured"> Featured </asp:ListItem>
+                        <asp:ListItem ID="priceLowToHigh" Value="PriceLowToHigh"> Price: Low To High </asp:ListItem>
+                        <asp:ListItem ID="priceHighToLow" Value="PriceHighToLow"> Price: High To Low </asp:ListItem>
+                        <asp:ListItem ID="newest" Value="Newest Arrivals"> Newest Arrivals </asp:ListItem>
                     </asp:DropDownList>
                     <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
                 </main>
@@ -53,7 +54,6 @@
                         </div>
                     </nav>
                 </footer>
-               </div>
             </div>
         </div>
     </form>

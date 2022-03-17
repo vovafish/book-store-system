@@ -112,4 +112,9 @@ public partial class _Default : System.Web.UI.Page
         lblError.Text = RecordCount + " records in the database";
         
     }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AdminMenu.aspx");
+    }
 }
