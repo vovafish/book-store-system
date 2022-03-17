@@ -173,20 +173,20 @@ namespace BookStoreClasses
                 if (author.Length == 0)
                 {
                     //record the error
-                    Error += "The author may not be blank : ";
+                    Error += "<p>The author may not be blank</p>";
                 }
                 //if the Author is blank
                 if (author.Length > 50)
                 {
                     //record the error
-                    Error += "The author must be 50 characters or less : ";
+                    Error += "<p>The author must be 50 characters or less</p>";
                 }
             }
             catch 
             {
 
                 //record the error
-                Error += "The author must be correct format : ";
+                Error += "<p>The author must be correct format</p>";
             }
 
             try
@@ -195,20 +195,20 @@ namespace BookStoreClasses
                 if (title.Length == 0)
                 {
                     //record the error
-                    Error += "The title may not be blank : ";
+                    Error += "<p>The title may not be blank</p>";
                 }
 
                 //if title is greater than 50 char
                 if (title.Length > 50)
                 {
                     //record the error
-                    Error += "The title must be less than 50 characters : ";
+                    Error += "<p>The title must be less than 50 characters</p>";
                 }
             }
             catch 
             {
                 //record the error
-                Error += "The titke must be correct format : ";
+                Error += "<p>The titke must be correct format</p>";
             }
 
             try
@@ -218,14 +218,14 @@ namespace BookStoreClasses
                 if (EditionTemp < 0 || EditionTemp > 1)
                 {
                     //record the error
-                    Error += "The edition must be between 0 and 1 : ";
+                    Error += "<p>The edition must be between 0 and 1</p>";
                 }
             }
             catch
             {
 
                 //record the error
-                Error += "The edition was not a valid number : ";
+                Error += "<p>The edition was not a valid number</p>";
             }
 
             try
@@ -235,14 +235,14 @@ namespace BookStoreClasses
                 if (PriceTemp < 0.01m || PriceTemp > 200.00m)
                 {
                     //record the error
-                    Error += "The price must be 0.01 or higher : ";
+                    Error += "<p>The price must be 0.01 or higher</p>";
                 }
             }
             catch
             {
 
                 //record the error
-                Error += "The price was not a valid value : ";
+                Error += "<p>The price was not a valid value</p>";
             }
 
             try
@@ -252,14 +252,14 @@ namespace BookStoreClasses
                 if (BookShelfNo < 0000.0000m || BookShelfNo > 9999.9999m)
                 {
                     //record the error
-                    Error += "The book shelf number must be between 0000.0000 and 9999.9999 : ";
+                    Error += "<p>The book shelf number must be between 0000.0000 and 9999.9999</p>";
                 }
             }
             catch
             {
 
                 //record the error
-                Error += "The book shelf number was not a valid value : ";
+                Error += "<p>The book shelf number was not a valid value</p>";
             }
             
             try
@@ -269,19 +269,19 @@ namespace BookStoreClasses
                 if (DateTemp < 1800)
                 {
                     //record the error
-                    Error += "The date cannot be before 1800th : ";
+                    Error += "<p>The date cannot be before 1800th</p>";
                 }
                 //check to see if the date is greater than today's date
                 if (DateTemp > DateTime.Now.Year)
                 {
                     //record the error
-                    Error += "The date cannot be in the future : ";
+                    Error += "<p>The date cannot be in the future</p>";
                 }
             }
             catch
             {
                 //record the error
-                Error += "The date was not a valid date : ";
+                Error += "<p>The date was not a valid date</p>";
             }
             
             //return any error msg

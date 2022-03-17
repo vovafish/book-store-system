@@ -44,6 +44,30 @@ html {
   grid-template-columns: 7fr 1fr;
   grid-gap: 0 15px;
 }
+.container .main-book {
+  padding: 50px 20px;
+  display: grid;
+}
+.container .main-book .form-input {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+.container .main-book .form-input .error > span > p {
+  color: red;
+  font-weight: bold;
+}
+.container .main-book .form-input--fields {
+  display: grid;
+  justify-items: end;
+}
+.container .main-book .form-input--fields > div {
+  padding-bottom: 3px;
+}
+.container .main-book > div {
+  padding: 10px 0;
+}
 .container .footer {
   padding: 50px 20px;
 }

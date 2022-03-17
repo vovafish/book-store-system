@@ -229,4 +229,9 @@ public partial class ABook : System.Web.UI.Page
         //clear the post code filter text box
         txtTitle.Text = "";
     }
+
+    protected void btnLogout_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("../Default.aspx");
+    }
 }
