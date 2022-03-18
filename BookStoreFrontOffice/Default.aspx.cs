@@ -59,10 +59,10 @@ public partial class _Default : System.Web.UI.Page
         //var to store the street name
         string Edition;
         //var to store the post code
+        string Title;
         string BookPrice;
-        string BookShelfNo;
         string GenreName;
-
+        string PubYear;
         //var to store the index
         // string ShelfNo;
         Int32 Index = 0;
@@ -84,9 +84,12 @@ public partial class _Default : System.Web.UI.Page
             BookPrice = Convert.ToString(MyBookList.BookList[Index].BookPrice);
            // BookShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
             GenreName = Convert.ToString(MyBookList.BookList[Index].GenreName);
+            PubYear = Convert.ToString(MyBookList.BookList[Index].PublicationYear);
+
             //get the address no from the query results
             //set up a new object of class list item 
-            ListItem NewItem = new ListItem("Author: " + Author + " |" +
+            ListItem NewItem = new ListItem("Publication Year: " + PubYear + " |" +
+                                            "Author: " + Author + " |" +
                                             " Title: " + Title + " |" +
                                             " Edition: " + Edition + " |" +
                                             " Price: " + BookPrice + " |" +

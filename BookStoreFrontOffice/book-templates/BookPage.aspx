@@ -64,11 +64,12 @@
                                     <asp:Label ID="Label7" runat="server" Text="Genre"></asp:Label>
                                     <asp:TextBox ID="txtGenre" runat="server"></asp:TextBox>
                                 </div>
+                                <div>
+                                    <asp:Button ID="btnOK" CssClass="btn" runat="server" Text="OK" OnClick="btnOK_Click" />
+                                    <asp:Button ID="btnCancel" CssClass="btn" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <asp:Button ID="btnOK" CssClass="btn" runat="server" Text="OK" OnClick="btnOK_Click" />
-                            <asp:Button ID="btnCancel" CssClass="btn" runat="server" Text="Cancel" />
+
                         </div>
                     </div>
                     <asp:ListBox ID="lstBooks" runat="server" class="book-list"></asp:ListBox>

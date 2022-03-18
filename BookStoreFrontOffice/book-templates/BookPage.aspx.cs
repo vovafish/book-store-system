@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.UI.WebControls;
 using BookStoreClasses;
 
@@ -12,7 +13,7 @@ public partial class ABook : System.Web.UI.Page
         if (IsPostBack == false)
         {
             //update the list box
-            DisplayBooks();
+            DisplayBooks("");
         }
 
     }
@@ -42,6 +43,7 @@ public partial class ABook : System.Web.UI.Page
         clsBookCollection MyBookList = new clsBookCollection();
         //var to store the count of records
         Int32 RecordCount;
+
         //var to store the house no
         string Author;
         //var to store the street name
@@ -50,8 +52,12 @@ public partial class ABook : System.Web.UI.Page
         string Title;
         //var to store the primary key value
         string BookId;
+        string BookPrice;
+        string GenreName;
+        string ShelfNo;
+        string PubYear;
         //var to store the index
-       // string ShelfNo;
+        // string ShelfNo;
         Int32 Index = 0;
         //clear the list of any existing items
         lstBooks.Items.Clear();
@@ -70,9 +76,22 @@ public partial class ABook : System.Web.UI.Page
             Title = Convert.ToString(MyBookList.BookList[Index].BookTitle);
             //get the address no from the query results
             BookId = Convert.ToString(MyBookList.BookList[Index].BookId);
-            //ShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
+            BookPrice = Convert.ToString(MyBookList.BookList[Index].BookPrice);
+            // BookShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
+            GenreName = Convert.ToString(MyBookList.BookList[Index].GenreName);
+            ShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
+            PubYear = Convert.ToString(MyBookList.BookList[Index].PublicationYear);
+           
             //set up a new object of class list item 
-            ListItem NewItem = new ListItem(Author + " " + Edition + " " + Title + " " + BookId);
+            ListItem NewItem = new ListItem("Book ID: " + BookId + " | " +
+                                            "Author: " + Author + " |" +
+                                            " Title: " + Title + " |" +
+                                            " Edition: " + Edition + " |" +
+                                            " Book Shelf Number: " + ShelfNo + " |" +
+                                            " Publication Year: " + PubYear + " |" +
+                                            " Price: " + BookPrice + " |" +
+                                            " Genre: " + GenreName
+                                            );
             //add the new item to the list
             lstBooks.Items.Add(NewItem);
             //increment the index
@@ -233,5 +252,11 @@ public partial class ABook : System.Web.UI.Page
     protected void btnLogout_Click(object sender, EventArgs e)
     {
         Response.Redirect("../Default.aspx");
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("../AdminMenu.aspx");
+
     }
 }
