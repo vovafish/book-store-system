@@ -42,6 +42,7 @@
                         <asp:ListItem ID="priceHighToLow" Value="PriceHighToLow"> Price: High To Low </asp:ListItem>
                         <asp:ListItem ID="newest" Value="Newest Arrivals"> Newest Arrivals </asp:ListItem>
                     </asp:DropDownList>
+                    <asp:Button ID="Test1" runat="server" Text="Test1" OnClick="Test1_Click" />
                     <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
                 </main>
                 <footer class="footer">
