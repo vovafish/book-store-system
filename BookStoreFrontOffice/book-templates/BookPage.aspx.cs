@@ -222,10 +222,8 @@ public partial class ABook : System.Web.UI.Page
             //int tempToInt = Convert.ToInt32(temp);
             //get the primary key value of the record to delete
             //BookId = tempToInt;
-           int test = lstBooks.SelectedValue.IndexOf(":");
-           string test1 = lstBooks.SelectedValue.Remove(test);
-
-
+            int test = lstBooks.SelectedValue.IndexOf(":");
+            string test1 = lstBooks.SelectedValue.Remove(test);
             BookId = Convert.ToInt32(test1);
             //BookId = Convert.ToInt32(lstBooks.SelectedValue);
             //BookId = Convert.ToInt32(lstBooks.SelectedValue.Substring(0, 3));

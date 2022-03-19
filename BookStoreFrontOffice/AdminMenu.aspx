@@ -15,6 +15,7 @@
             <asp:Button ID="btnCustomers" runat="server" Text="Customers" OnClick="btnCustomers_Click" />
             <asp:Button ID="btnOrders" runat="server" Text="Orders" OnClick="btnOrders_Click" />
             <asp:Button ID="btnSupplier" runat="server" Text="Supplier" OnClick="btnSupplier_Click" />
+            <asp:Button ID="btnDefault" runat="server" Text="Go Back" OnClick="btnDefault_Click" />
         </div>
     </form>
 </body>

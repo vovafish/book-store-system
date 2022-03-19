@@ -98,9 +98,10 @@ public partial class _Default : System.Web.UI.Page
 
             //get the address no from the query results
             //set up a new object of class list item 
-            ListItem NewItem = new ListItem("Publication Year: " + PubYear + " |" +
+            ListItem NewItem = new ListItem(
                                             "Author: " + Author + " |" +
                                             " Title: " + Title + " |" +
+                                            "Publication Year: " + PubYear + " |" +
                                             " Edition: " + Edition + " |" +
                                             " Price: " + BookPrice + " |" +
                                             " Genre: " + GenreName

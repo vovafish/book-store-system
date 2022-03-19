@@ -41,4 +41,9 @@ public partial class AdminMenu : System.Web.UI.Page
     {
         Response.Redirect("ASupplier.aspx");
     }
+
+    protected void btnDefault_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
+    }
 }
