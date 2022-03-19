@@ -154,6 +154,7 @@ namespace BookStore_Testing
             Assert.IsFalse(Found);
         }
         */
+        /*
         [TestMethod]
         public void DeleteMethodOK()
         {
@@ -182,7 +183,7 @@ namespace BookStore_Testing
             //test to see that two values are the same
             Assert.AreEqual(AllBooks.ThisBook, TestItem);
         }
-
+        */
         /*
          This code commented because when it gets executed it updates the database with duplicated rows
          */

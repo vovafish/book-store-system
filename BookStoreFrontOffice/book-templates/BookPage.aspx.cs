@@ -68,6 +68,7 @@ public partial class ABook : System.Web.UI.Page
         //loop through each record found using the index to point to each record in the data table
         while (Index < RecordCount)
         {
+            BookId = Convert.ToString(MyBookList.BookList[Index].BookId);
             //get the house no from the query results
             Author = Convert.ToString(MyBookList.BookList[Index].Author);
             //get the street from the query results
@@ -75,15 +76,15 @@ public partial class ABook : System.Web.UI.Page
             //get the post code from the query results
             Title = Convert.ToString(MyBookList.BookList[Index].BookTitle);
             //get the address no from the query results
-            BookId = Convert.ToString(MyBookList.BookList[Index].BookId);
             BookPrice = Convert.ToString(MyBookList.BookList[Index].BookPrice);
             // BookShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
             GenreName = Convert.ToString(MyBookList.BookList[Index].GenreName);
             ShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
             PubYear = Convert.ToString(MyBookList.BookList[Index].PublicationYear);
-           
+
             //set up a new object of class list item 
-            ListItem NewItem = new ListItem("Book ID: " + BookId + " | " +
+            
+            ListItem NewItem = new ListItem(BookId + " : ID" + " | " +
                                             "Author: " + Author + " |" +
                                             " Title: " + Title + " |" +
                                             " Edition: " + Edition + " |" +
@@ -92,6 +93,8 @@ public partial class ABook : System.Web.UI.Page
                                             " Price: " + BookPrice + " |" +
                                             " Genre: " + GenreName
                                             );
+            
+           // ListItem NewItem = new ListItem(BookId + " : ID" + " | " +"Author: " + Author + " |" +" Title: " + Title + " |" +" Edition: " + Edition + " |" +" Book Shelf Number: " + ShelfNo + " |" +" Publication Year: " + PubYear + " |" +" Price: " + BookPrice + " |" + " Genre: " + GenreName);
             //add the new item to the list
             lstBooks.Items.Add(NewItem);
             //increment the index
@@ -213,8 +216,21 @@ public partial class ABook : System.Web.UI.Page
         //if a record has be selected from the list
         if (lstBooks.SelectedIndex != -1)
         {
+            // lstBooks.SelectedValue.Trim();
+            //string temp = lstBooks.SelectedValue.Substring(9, 1);
+            //temp = lstBooks.SelectedValue.Substring(9, 1);
+            //int tempToInt = Convert.ToInt32(temp);
             //get the primary key value of the record to delete
-            BookId = Convert.ToInt32(lstBooks.SelectedValue);
+            //BookId = tempToInt;
+           int test = lstBooks.SelectedValue.IndexOf(":");
+           string test1 = lstBooks.SelectedValue.Remove(test);
+
+
+            BookId = Convert.ToInt32(test1);
+            //BookId = Convert.ToInt32(lstBooks.SelectedValue);
+            //BookId = Convert.ToInt32(lstBooks.SelectedValue.Substring(0, 3));
+
+
             //store the data in the session object
             Session["BookId"] = BookId;
             //redirect to the delete page

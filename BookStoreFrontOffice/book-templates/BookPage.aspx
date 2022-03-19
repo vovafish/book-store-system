@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<%--THE FILE CREATED BY VLADIMIRS RIBAKOVS--%>
+<%--@VR--%>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">

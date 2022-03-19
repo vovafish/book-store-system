@@ -120,4 +120,9 @@ public partial class AddNewBook : System.Web.UI.Page
     {
         Response.Redirect("BookPage.aspx");
     }
+
+    protected void btnLogout_Click(object sender, EventArgs e)
+    {
+
+    }
 }
