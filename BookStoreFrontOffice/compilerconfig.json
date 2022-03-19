@@ -6,5 +6,9 @@
   {
     "outputFile": "styles/book-css/main.css",
     "inputFile": "styles/book-css/main.less"
+  },
+  {
+    "outputFile": "styles/book-css/default.css",
+    "inputFile": "styles/book-css/default.less"
   }
 ]

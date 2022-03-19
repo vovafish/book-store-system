@@ -1,18 +1,4 @@
-﻿*,
-html {
-  margin: 0;
-  padding: 0;
-}
-.wrap {
-  width: 94%;
-  margin: auto;
-  background-color: aqua;
-}
-.btn {
-  width: fit-content;
-  padding: 3px 6px;
-}
-.container {
+﻿.container {
   display: grid;
 }
 .container .top-nav {

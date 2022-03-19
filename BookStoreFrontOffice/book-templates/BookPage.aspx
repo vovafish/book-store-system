@@ -19,12 +19,12 @@
                 </div>
                 <main class="main-book">
                     <div class="btn-group">
-                        <asp:Button ID="btnFind" CssClass="btn" runat="server" Text="Find" OnClick="btnFind_Click" />
-                        <asp:Button ID="btnAdd" CssClass="btn" runat="server" OnClick="btnAdd_Click" Text="Add" />
-                        <asp:Button ID="btnApply" CssClass="btn" runat="server" Text="Apply" OnClick="btnApply_Click" />
-                        <asp:Button ID="btnDisplay" CssClass="btn" runat="server" Text="Display" ValidateRequestMode="Enabled" OnClick="Button1_Click" />
-                        <asp:Button ID="btnDelete" CssClass="btn" runat="server" OnClick="btnDelete_Click" Text="Delete" />
-                        <asp:Button ID="btnEdit" CssClass="btn" runat="server" OnClick="btnEdit_Click" Text="Edit" />
+                        <asp:Button ID="btnFind" CssClass="btn btn-page" runat="server" Text="Find" OnClick="btnFind_Click" />
+                        <asp:Button ID="btnAdd" CssClass="btn btn-page" runat="server" OnClick="btnAdd_Click" Text="Add" />
+                        <asp:Button ID="btnApply" CssClass="btn btn-page" runat="server" Text="Apply" OnClick="btnApply_Click" />
+                        <asp:Button ID="btnDisplay" CssClass="btn btn-page" runat="server" Text="Display" ValidateRequestMode="Enabled" OnClick="Button1_Click" />
+                        <asp:Button ID="btnDelete" CssClass="btn btn-page" runat="server" OnClick="btnDelete_Click" Text="Delete" />
+                        <asp:Button ID="btnEdit" CssClass="btn btn-page" runat="server" OnClick="btnEdit_Click" Text="Edit" />
                     </div>
                     <div class="form">
                         <div class="form-input">
@@ -65,7 +65,6 @@
                                     <asp:TextBox ID="txtGenre" runat="server"></asp:TextBox>
                                 </div>
                                 <div>
-                                    <asp:Button ID="btnOK" CssClass="btn" runat="server" Text="OK" OnClick="btnOK_Click" />
                                     <asp:Button ID="btnCancel" CssClass="btn" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
                                 </div>
                             </div>
