@@ -48,7 +48,7 @@ public partial class AddNewBook : System.Web.UI.Page
         else
         {
             //report an erro
-            lblError.Text = "There were problems with the data entered " + Error;
+            lblError.Text = "<p>There were problems with the data entered</p> " + Error;
         }
     }
 
@@ -80,7 +80,7 @@ public partial class AddNewBook : System.Web.UI.Page
         else
         {
             //report an erro
-            lblError.Text = "There were problems with the data entered " + Error;
+            lblError.Text = "<p>There were problems with the data entered</p> " + Error;
         }
     }
     protected void btnOK_Click(object sender, EventArgs e)
@@ -95,9 +95,7 @@ public partial class AddNewBook : System.Web.UI.Page
             //Update the record
             Update();
         }
-        
-        //all done so redirect back to the main page
-        //Response.Redirect("BookPage.aspx");
+       
     }
 
     void DisplayBook()
@@ -122,6 +120,11 @@ public partial class AddNewBook : System.Web.UI.Page
     }
 
     protected void btnLogout_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("../Default.aspx");
+    }
+
+    protected void btnOk_Click(object sender, EventArgs e)
     {
 
     }

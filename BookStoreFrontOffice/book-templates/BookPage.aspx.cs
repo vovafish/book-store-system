@@ -94,7 +94,6 @@ public partial class ABook : System.Web.UI.Page
                                             " Genre: " + GenreName
                                             );
             
-           // ListItem NewItem = new ListItem(BookId + " : ID" + " | " +"Author: " + Author + " |" +" Title: " + Title + " |" +" Edition: " + Edition + " |" +" Book Shelf Number: " + ShelfNo + " |" +" Publication Year: " + PubYear + " |" +" Price: " + BookPrice + " |" + " Genre: " + GenreName);
             //add the new item to the list
             lstBooks.Items.Add(NewItem);
             //increment the index
@@ -127,7 +126,7 @@ public partial class ABook : System.Web.UI.Page
         }
         catch 
         {
-            lblError.Text = "Please enter a valid PK";
+            lblError.Text = "<p>Please enter a valid PK</p>";
         }
     }
 
@@ -148,8 +147,10 @@ public partial class ABook : System.Web.UI.Page
         //if a record has be selected from the list
         if (lstBooks.SelectedIndex != -1)
         {
+            int test = lstBooks.SelectedValue.IndexOf(":");
+            string test1 = lstBooks.SelectedValue.Remove(test);
             //get the primary key value of the record to delete
-            BookId = Convert.ToInt32(lstBooks.SelectedValue);
+            BookId = Convert.ToInt32(test1);
             //store the data in the session object
             Session["BookId"] = BookId;
             //redirect to the delete page
@@ -158,7 +159,7 @@ public partial class ABook : System.Web.UI.Page
         else //if no records has be selected
         {
             //display an error;
-            lblError.Text = "Plese select a record to delete from the list";
+            lblError.Text = "<p>Plese select a record to delete from the list</p>";
         }
     }
 
@@ -169,19 +170,12 @@ public partial class ABook : System.Web.UI.Page
         //if a record has be selected from the list
         if (lstBooks.SelectedIndex != -1)
         {
-            // lstBooks.SelectedValue.Trim();
-            //string temp = lstBooks.SelectedValue.Substring(9, 1);
-            //temp = lstBooks.SelectedValue.Substring(9, 1);
-            //int tempToInt = Convert.ToInt32(temp);
-            //get the primary key value of the record to delete
-            //BookId = tempToInt;
+            //find the position of the symbol (:) in string
             int test = lstBooks.SelectedValue.IndexOf(":");
+            //remove everything from the string after the indexed position
             string test1 = lstBooks.SelectedValue.Remove(test);
+            //get the primary key value of the record to delete
             BookId = Convert.ToInt32(test1);
-            //BookId = Convert.ToInt32(lstBooks.SelectedValue);
-            //BookId = Convert.ToInt32(lstBooks.SelectedValue.Substring(0, 3));
-
-
             //store the data in the session object
             Session["BookId"] = BookId;
             //redirect to the delete page
@@ -190,7 +184,7 @@ public partial class ABook : System.Web.UI.Page
         else //if no records has be selected
         {
             //display an error;
-            lblError.Text = "Plese select a record to delete from the list";
+            lblError.Text = "<p>Plese select a record to delete from the list<p>";
         }
     }
 
@@ -211,7 +205,7 @@ public partial class ABook : System.Web.UI.Page
         //assign the results of the DisplayAddresses function to the record count var
         RecordCount = DisplayBooks("");
         //display the number of records found
-        lblError.Text = RecordCount + " records in the database";
+        lblError.Text = "<span>" + RecordCount + " records in the database</span>";
         //clear the post code filter text box
         txtTitle.Text = "";
     }

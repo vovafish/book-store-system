@@ -40,19 +40,33 @@
   align-items: center;
   justify-items: center;
 }
+.container .main-book .form-input .form-wrapper {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
 .container .main-book .form-input .error > span > p {
   color: red;
   font-weight: bold;
 }
+.container .main-book .form-input .error > span {
+  font-size: 1.4em;
+  color: green;
+  font-weight: bold;
+}
 .container .main-book .form-input--fields {
-  display: grid;
-  justify-items: end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.container .main-book .form-input--fields > div:first-of-type {
+  margin-right: 33px;
 }
 .container .main-book .form-input--fields > div {
   padding-bottom: 3px;
 }
 .container .main-book > div {
-  padding: 10px 0;
+  padding: 30px 0;
 }
 .container .footer {
   padding: 50px 20px;

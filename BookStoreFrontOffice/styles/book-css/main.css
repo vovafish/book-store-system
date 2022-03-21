@@ -12,6 +12,28 @@ html {
   width: fit-content;
   padding: 3px 6px;
 }
+.btn-cancel {
+  width: 100%;
+  background-color: #9BE205;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #94D804;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 .container {
   display: grid;
 }
@@ -54,19 +76,33 @@ html {
   align-items: center;
   justify-items: center;
 }
+.container .main-book .form-input .form-wrapper {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
 .container .main-book .form-input .error > span > p {
   color: red;
   font-weight: bold;
 }
+.container .main-book .form-input .error > span {
+  font-size: 1.4em;
+  color: green;
+  font-weight: bold;
+}
 .container .main-book .form-input--fields {
-  display: grid;
-  justify-items: end;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.container .main-book .form-input--fields > div:first-of-type {
+  margin-right: 33px;
 }
 .container .main-book .form-input--fields > div {
   padding-bottom: 3px;
 }
 .container .main-book > div {
-  padding: 10px 0;
+  padding: 30px 0;
 }
 .container .footer {
   padding: 50px 20px;

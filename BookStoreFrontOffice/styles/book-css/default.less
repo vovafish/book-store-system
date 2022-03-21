@@ -49,14 +49,34 @@
             align-items: center;
             justify-items: center;
 
+            .form-wrapper {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+
+            .form-design {
+            }
+
             .error > span > p {
                 color: red;
                 font-weight: bold;
             }
 
+            .error > span {
+                font-size: 1.4em;
+                color: green;
+                font-weight: bold;
+            }
+
             &--fields {
-                display: grid;
-                justify-items: end;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            &--fields > div:first-of-type {
+                margin-right: 33px;
             }
 
             &--fields > div {
@@ -66,7 +86,7 @@
     }
 
     .main-book > div {
-        padding: 10px 0;
+        padding: 30px 0;
     }
 
 

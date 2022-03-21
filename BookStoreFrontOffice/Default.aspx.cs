@@ -12,10 +12,6 @@ public partial class _Default : System.Web.UI.Page
     //this function handels the load event for the paga
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-
-        
-        
         //clear any existing error messages
         lblError.Text = "";
         //if this is the first time the page has been displayed
@@ -23,17 +19,9 @@ public partial class _Default : System.Web.UI.Page
         {
             //populate the list and display the number of records found
             //lblError.Text = DisplayBooks("") + " records in the database";
-            lblError.Text = DisplayBooks("") + " records in the database";
+            lblError.Text = "<span>" + DisplayBooks("") + " records in the database</span>";
             
-        }
-        /*
-        if (ddlSort.SelectedIndex == 2)
-        {
-            lblError.Text = DisplayBooksLowToHigh() + " records in the database";
-
-        }
-        */
-        
+        }   
     }
 
     void DisplayBooks()
@@ -167,7 +155,7 @@ public partial class _Default : System.Web.UI.Page
                                             " Edition: " + Edition + " |" +
                                             " Price: " + BookPrice + " |" +
                                             " Genre: " + GenreName
-                                            );
+                                            ,priceLowToHigh.ToString());
             //add the new item to the list
             lstBooks.Items.Add(NewItem);
             //increment the index
@@ -180,15 +168,17 @@ public partial class _Default : System.Web.UI.Page
 
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        /*
+        
         //var to store the record count
         Int32 RecordCount;
+       // ddlSort.S
+        //ddlSort.SelectedIndex(priceLowToHigh);
         //set the data source to the list of ??? on the collection
         //assign the results of the DisplayAddresses function to the record count var
         RecordCount = DisplayBooksLowToHigh();
         //display the number of records found
-        lblError.Text = RecordCount + " records in the database";
-        */
+        lblError.Text = "<span>" + RecordCount + " records in the database</span>";
+        
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
