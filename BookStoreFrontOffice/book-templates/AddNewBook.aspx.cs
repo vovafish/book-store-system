@@ -126,6 +126,15 @@ public partial class AddNewBook : System.Web.UI.Page
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
-
+        if (BookId == -1)
+        {
+            //add the new record
+            Add();
+        }
+        else
+        {
+            //Update the record
+            Update();
+        }
     }
 }
