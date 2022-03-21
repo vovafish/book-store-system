@@ -81,17 +81,6 @@
                     </div>
                     <asp:ListBox ID="lstBooks" runat="server" class="book-list"></asp:ListBox>
                 </main>
-                <footer class="footer">
-                    <nav>
-                        <div class="copy">
-                            <p></p>
-                        </div>
-                        <div class="links">
-                            <a href="#">Careers</a>
-                            <a href="#">About Us</a>
-                        </div>
-                    </nav>
-                </footer>
             </div>
         </div>
     </form>
