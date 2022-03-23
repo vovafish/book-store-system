@@ -19,8 +19,8 @@
                         <div class="form-input">
                             <div>
                                 <p>Are you sure you want to delete this book?</p>
-                                <asp:Button ID="btnYes" runat="server" Text="Yes" OnClick="btnYes_Click" />
-                                <asp:Button ID="btnNo" runat="server" Text="No" OnClick="btnNo_Click" />
+                                <asp:Button ID="btnYes" CssClass="btn" runat="server" Text="Yes" OnClick="btnYes_Click" />
+                                <asp:Button ID="btnNo" CssClass="btn" runat="server" Text="No" OnClick="btnNo_Click" />
                             </div>
                             <div class="error">
                                 <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
@@ -28,6 +28,7 @@
                         </div>
                     </div>
                 </main>
+                
             </div>
         </div>
     </form>

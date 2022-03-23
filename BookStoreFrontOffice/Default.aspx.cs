@@ -18,7 +18,7 @@ public partial class _Default : System.Web.UI.Page
         if (IsPostBack == false)
         {
             //populate the list and display the number of records found
-            lblError.Text = "<span>" + DisplayBooks("") + " records in the database</span>";
+            lblError.Text = "<span>" + DisplayBooks("") + " books found for you</span>";
             
         }   
     }
@@ -359,7 +359,7 @@ public partial class _Default : System.Web.UI.Page
         //assign the results of the DisplayAddresses function to the record count var
         RecordCount = DisplayBooksHighToLow();
         //display the number of records found
-        lblError.Text = RecordCount + " records in the database";
+        lblError.Text = "<span>" + RecordCount + " books found for you</span>";
     }
 
     protected void btnLTH_Click(object sender, EventArgs e)
@@ -369,7 +369,7 @@ public partial class _Default : System.Web.UI.Page
         //assign the results of the DisplayAddresses function to the record count var
         RecordCount = DisplayBooksLowToHigh();
         //display the number of records found
-        lblError.Text = RecordCount + " records in the database";
+        lblError.Text = "<span>" + RecordCount + " books found for you</span>";
     }
 
     protected void btnOBA_Click(object sender, EventArgs e)
@@ -379,7 +379,7 @@ public partial class _Default : System.Web.UI.Page
         //assign the results of the DisplayAddresses function to the record count var
         RecordCount = DisplayBooksOrderedByAuthor();
         //display the number of records found
-        lblError.Text = RecordCount + " records in the database";
+        lblError.Text = "<span>" + RecordCount + " books found for you</span>";
     }
 
     protected void btnOBPY_Click(object sender, EventArgs e)
@@ -389,6 +389,6 @@ public partial class _Default : System.Web.UI.Page
         //assign the results of the DisplayAddresses function to the record count var
         RecordCount = DisplayBooksOrderedByPubYear();
         //display the number of records found
-        lblError.Text = RecordCount + " records in the database";
+        lblError.Text = "<span>" + RecordCount + " books found for you</span>";
     }
 }
