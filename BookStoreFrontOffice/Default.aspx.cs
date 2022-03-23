@@ -18,7 +18,6 @@ public partial class _Default : System.Web.UI.Page
         if (IsPostBack == false)
         {
             //populate the list and display the number of records found
-            //lblError.Text = DisplayBooks("") + " records in the database";
             lblError.Text = "<span>" + DisplayBooks("") + " records in the database</span>";
             
         }   
@@ -149,13 +148,13 @@ public partial class _Default : System.Web.UI.Page
 
             //get the address no from the query results
             //set up a new object of class list item 
-            ListItem NewItem = new ListItem("Publication Year: " + PubYear + " |" +
-                                            "Author: " + Author + " |" +
+            ListItem NewItem = new ListItem("Author: " + Author + " |" +
                                             " Title: " + Title + " |" +
+                                            "Publication Year: " + PubYear + " |" +
                                             " Edition: " + Edition + " |" +
                                             " Price: " + BookPrice + " |" +
                                             " Genre: " + GenreName
-                                            ,priceLowToHigh.ToString());
+                                            );
             //add the new item to the list
             lstBooks.Items.Add(NewItem);
             //increment the index
@@ -165,20 +164,187 @@ public partial class _Default : System.Web.UI.Page
         return RecordCount;
     }
 
-
-    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    Int32 DisplayBooksHighToLow()
     {
-        
-        //var to store the record count
+        ///this function accepts one parameter - the post code to filter the list on
+        ///it populates the list box with data from the middle layer class
+        ///it returns a single value, the number of records found
+
+        //create a new instance of the clsAddress
+        clsBookCollection MyBookList = new clsBookCollection();
+        //var to store the count of records
         Int32 RecordCount;
-       // ddlSort.S
-        //ddlSort.SelectedIndex(priceLowToHigh);
-        //set the data source to the list of ??? on the collection
-        //assign the results of the DisplayAddresses function to the record count var
-        RecordCount = DisplayBooksLowToHigh();
-        //display the number of records found
-        lblError.Text = "<span>" + RecordCount + " records in the database</span>";
-        
+        //var to store the house no
+        string Author;
+        //var to store the street name
+        string Edition;
+        //var to store the post code
+        string Title;
+        string BookPrice;
+        string GenreName;
+        string PubYear;
+        //var to store the index
+        // string ShelfNo;
+        Int32 Index = 0;
+        //clear the list of any existing items
+        //lstBooks.Items.Clear();
+        lstBooks.Items.Clear();
+        //call the filter by post code method
+        MyBookList.PriceHighToLow();
+        //get the count of records found
+        RecordCount = MyBookList.Count;
+        //loop through each record found using the index to point to each record in the data table
+        while (Index < RecordCount)
+        {
+            //get the house no from the query results
+            Author = Convert.ToString(MyBookList.BookList[Index].Author);
+            //get the street from the query results
+            Edition = Convert.ToString(MyBookList.BookList[Index].Edition);
+            //get the post code from the query results
+            Title = Convert.ToString(MyBookList.BookList[Index].BookTitle);
+            BookPrice = Convert.ToString(MyBookList.BookList[Index].BookPrice);
+            // BookShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
+            GenreName = Convert.ToString(MyBookList.BookList[Index].GenreName);
+            PubYear = Convert.ToString(MyBookList.BookList[Index].PublicationYear);
+
+            //get the address no from the query results
+            //set up a new object of class list item 
+            ListItem NewItem = new ListItem("Author: " + Author + " |" +
+                                            " Title: " + Title + " |" +
+                                            "Publication Year: " + PubYear + " |" +
+                                            " Edition: " + Edition + " |" +
+                                            " Price: " + BookPrice + " |" +
+                                            " Genre: " + GenreName
+                                            );
+            //add the new item to the list
+            lstBooks.Items.Add(NewItem);
+            //increment the index
+            Index++;
+        }
+        //return the number of records found
+        return RecordCount;
+    }
+
+    Int32 DisplayBooksOrderedByAuthor()
+    {
+        ///this function accepts one parameter - the post code to filter the list on
+        ///it populates the list box with data from the middle layer class
+        ///it returns a single value, the number of records found
+
+        //create a new instance of the clsAddress
+        clsBookCollection MyBookList = new clsBookCollection();
+        //var to store the count of records
+        Int32 RecordCount;
+        //var to store the house no
+        string Author;
+        //var to store the street name
+        string Edition;
+        //var to store the post code
+        string Title;
+        string BookPrice;
+        string GenreName;
+        string PubYear;
+        //var to store the index
+        // string ShelfNo;
+        Int32 Index = 0;
+        //clear the list of any existing items
+        //lstBooks.Items.Clear();
+        lstBooks.Items.Clear();
+        //call the filter by post code method
+        MyBookList.OrderByAuthor();
+        //get the count of records found
+        RecordCount = MyBookList.Count;
+        //loop through each record found using the index to point to each record in the data table
+        while (Index < RecordCount)
+        {
+            //get the house no from the query results
+            Author = Convert.ToString(MyBookList.BookList[Index].Author);
+            //get the street from the query results
+            Edition = Convert.ToString(MyBookList.BookList[Index].Edition);
+            //get the post code from the query results
+            Title = Convert.ToString(MyBookList.BookList[Index].BookTitle);
+            BookPrice = Convert.ToString(MyBookList.BookList[Index].BookPrice);
+            // BookShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
+            GenreName = Convert.ToString(MyBookList.BookList[Index].GenreName);
+            PubYear = Convert.ToString(MyBookList.BookList[Index].PublicationYear);
+
+            //get the address no from the query results
+            //set up a new object of class list item 
+            ListItem NewItem = new ListItem("Author: " + Author + " |" +
+                                            " Title: " + Title + " |" +
+                                            "Publication Year: " + PubYear + " |" +
+                                            " Edition: " + Edition + " |" +
+                                            " Price: " + BookPrice + " |" +
+                                            " Genre: " + GenreName
+                                            );
+            //add the new item to the list
+            lstBooks.Items.Add(NewItem);
+            //increment the index
+            Index++;
+        }
+        //return the number of records found
+        return RecordCount;
+    }
+
+    Int32 DisplayBooksOrderedByPubYear()
+    {
+        ///this function accepts one parameter - the post code to filter the list on
+        ///it populates the list box with data from the middle layer class
+        ///it returns a single value, the number of records found
+
+        //create a new instance of the clsAddress
+        clsBookCollection MyBookList = new clsBookCollection();
+        //var to store the count of records
+        Int32 RecordCount;
+        //var to store the house no
+        string Author;
+        //var to store the street name
+        string Edition;
+        //var to store the post code
+        string Title;
+        string BookPrice;
+        string GenreName;
+        string PubYear;
+        //var to store the index
+        // string ShelfNo;
+        Int32 Index = 0;
+        //clear the list of any existing items
+        //lstBooks.Items.Clear();
+        lstBooks.Items.Clear();
+        //call the filter by post code method
+        MyBookList.OrderByPubYear();
+        //get the count of records found
+        RecordCount = MyBookList.Count;
+        //loop through each record found using the index to point to each record in the data table
+        while (Index < RecordCount)
+        {
+            //get the house no from the query results
+            Author = Convert.ToString(MyBookList.BookList[Index].Author);
+            //get the street from the query results
+            Edition = Convert.ToString(MyBookList.BookList[Index].Edition);
+            //get the post code from the query results
+            Title = Convert.ToString(MyBookList.BookList[Index].BookTitle);
+            BookPrice = Convert.ToString(MyBookList.BookList[Index].BookPrice);
+            // BookShelfNo = Convert.ToString(MyBookList.BookList[Index].BookShelfNo);
+            GenreName = Convert.ToString(MyBookList.BookList[Index].GenreName);
+            PubYear = Convert.ToString(MyBookList.BookList[Index].PublicationYear);
+
+            //get the address no from the query results
+            //set up a new object of class list item 
+            ListItem NewItem = new ListItem("Author: " + Author + " |" +
+                                            " Title: " + Title + " |" +
+                                            "Publication Year: " + PubYear + " |" +
+                                            " Edition: " + Edition + " |" +
+                                            " Price: " + BookPrice + " |" +
+                                            " Genre: " + GenreName
+                                            );
+            //add the new item to the list
+            lstBooks.Items.Add(NewItem);
+            //increment the index
+            Index++;
+        }
+        //return the number of records found
+        return RecordCount;
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -186,15 +352,43 @@ public partial class _Default : System.Web.UI.Page
         Response.Redirect("AdminMenu.aspx");
     }
 
-    protected void Test1_Click(object sender, EventArgs e)
+    protected void btnHTL_Click(object sender, EventArgs e)
     {
-        
+        Int32 RecordCount;
+        //set the data source to the list of ??? on the collection
+        //assign the results of the DisplayAddresses function to the record count var
+        RecordCount = DisplayBooksHighToLow();
+        //display the number of records found
+        lblError.Text = RecordCount + " records in the database";
+    }
+
+    protected void btnLTH_Click(object sender, EventArgs e)
+    {
         Int32 RecordCount;
         //set the data source to the list of ??? on the collection
         //assign the results of the DisplayAddresses function to the record count var
         RecordCount = DisplayBooksLowToHigh();
         //display the number of records found
         lblError.Text = RecordCount + " records in the database";
-        
+    }
+
+    protected void btnOBA_Click(object sender, EventArgs e)
+    {
+        Int32 RecordCount;
+        //set the data source to the list of ??? on the collection
+        //assign the results of the DisplayAddresses function to the record count var
+        RecordCount = DisplayBooksOrderedByAuthor();
+        //display the number of records found
+        lblError.Text = RecordCount + " records in the database";
+    }
+
+    protected void btnOBPY_Click(object sender, EventArgs e)
+    {
+        Int32 RecordCount;
+        //set the data source to the list of ??? on the collection
+        //assign the results of the DisplayAddresses function to the record count var
+        RecordCount = DisplayBooksOrderedByPubYear();
+        //display the number of records found
+        lblError.Text = RecordCount + " records in the database";
     }
 }

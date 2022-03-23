@@ -36,13 +36,12 @@
                 </header>
                 <main class="main">
                     <asp:ListBox ID="lstBooks" runat="server" class="book-list"></asp:ListBox>
-                    <asp:DropDownList ID="ddlSort" runat="server" class="btn btn-feature" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                        <asp:ListItem ID="featured" Selected="True" Value="Featured"> Featured </asp:ListItem>
-                        <asp:ListItem ID="priceLowToHigh" Value="PriceLowToHigh"> Price: Low To High </asp:ListItem>
-                        <asp:ListItem ID="priceHighToLow" Value="PriceHighToLow"> Price: High To Low </asp:ListItem>
-                        <asp:ListItem ID="newest" Value="Newest Arrivals"> Newest Arrivals </asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:Button ID="Test1" runat="server" Text="Test1" OnClick="Test1_Click" />
+                   <div class="btn-feature">
+                       <asp:Button ID="btnHTL" CssClass="btn" runat="server" Text="Price: High To Low" OnClick="btnHTL_Click" />
+                       <asp:Button ID="btnLTH" CssClass="btn" runat="server" Text="Price: Low To High" OnClick="btnLTH_Click" />
+                       <asp:Button ID="btnOBA" CssClass="btn" runat="server" Text="Order By Author" OnClick="btnOBA_Click" />
+                       <asp:Button ID="btnOBPY" CssClass="btn" runat="server" Text="Order By Publication Year" OnClick="btnOBPY_Click" />
+                   </div>
                     <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
                 </main>
                 <footer class="footer">

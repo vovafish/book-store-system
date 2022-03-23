@@ -159,5 +159,26 @@ namespace BookStoreClasses
             DB.Execute("sproc_tblBook_PriceLowToHigh");
             PopulateArray(DB);
         }
+
+        public void PriceHighToLow()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblBook_PriceHighToLow");
+            PopulateArray(DB);
+        }
+
+        public void OrderByAuthor()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblBook_OrderByAuthor");
+            PopulateArray(DB);
+        }
+
+        public void OrderByPubYear()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblBook_OrderByPubYear");
+            PopulateArray(DB);
+        }
     }
 }

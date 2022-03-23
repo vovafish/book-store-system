@@ -87,10 +87,6 @@
   border-color: #494949 !important;
   transition: all 0.3s ease 0s;
 }
-.container .btn-feature {
-  width: 89px;
-  height: fit-content;
-}
 .container .btn-group {
   display: flex;
   justify-content: center;
