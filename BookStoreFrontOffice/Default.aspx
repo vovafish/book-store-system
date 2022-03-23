@@ -12,6 +12,7 @@
     <title>Get My Books</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="styles/book-css/main.min.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/d44781832a.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -29,19 +30,34 @@
                         <p>Feel free to find your favourite book</p>
                     </div>
                     <div>
-                        
-                        <a>Link1</a>
-                        <a>Lik2</a>
+                        <div class="wrapper">
+                            <div class="icon facebook">
+                                <div class="tooltip">Facebook</div>
+                                <span><i class="fa fa-facebook" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="icon twitter">
+                                <div class="tooltip">Twitter</div>
+                                <span><i class="fa fa-twitter" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="icon instagram">
+                                <div class="tooltip">Instagram</div>
+                                <span><i class="fa fa-instagram" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="icon youtube">
+                                <div class="tooltip">Youtube</div>
+                                <span><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
                     </div>
                 </header>
                 <main class="main">
                     <asp:ListBox ID="lstBooks" runat="server" class="book-list"></asp:ListBox>
-                   <div class="btn-feature">
-                       <asp:Button ID="btnHTL" CssClass="btn" runat="server" Text="Price: High To Low" OnClick="btnHTL_Click" />
-                       <asp:Button ID="btnLTH" CssClass="btn" runat="server" Text="Price: Low To High" OnClick="btnLTH_Click" />
-                       <asp:Button ID="btnOBA" CssClass="btn" runat="server" Text="Order By Author" OnClick="btnOBA_Click" />
-                       <asp:Button ID="btnOBPY" CssClass="btn" runat="server" Text="Order By Publication Year" OnClick="btnOBPY_Click" />
-                   </div>
+                    <div class="btn-feature">
+                        <asp:Button ID="btnHTL" CssClass="btn" runat="server" Text="Price: High To Low" OnClick="btnHTL_Click" />
+                        <asp:Button ID="btnLTH" CssClass="btn" runat="server" Text="Price: Low To High" OnClick="btnLTH_Click" />
+                        <asp:Button ID="btnOBA" CssClass="btn" runat="server" Text="Order By Author" OnClick="btnOBA_Click" />
+                        <asp:Button ID="btnOBPY" CssClass="btn" runat="server" Text="Order By Publication Year" OnClick="btnOBPY_Click" />
+                    </div>
                     <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
                 </main>
                 <footer class="footer">
