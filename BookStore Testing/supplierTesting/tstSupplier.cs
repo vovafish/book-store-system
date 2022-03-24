@@ -146,11 +146,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 1;
+            Int32 SupplierNo = 2;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.SupplierNo != 1)
+            if (ASupplier.SupplierNo != 2)
             {
                 OK = false;
             }
@@ -168,11 +168,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 1;
+            Int32 SupplierNo = 2;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.Name != Convert.ToString("Book Depot"))
+            if (ASupplier.Name != Convert.ToString("Book Life"))
             {
                 OK = false;
             }
@@ -190,11 +190,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 1;
+            Int32 SupplierNo = 2;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.Address != Convert.ToString("1 Book Lane, Booksford"))
+            if (ASupplier.Address != Convert.ToString("1 Book Land, Booksford"))
             {
                 OK = false;
             }
@@ -212,11 +212,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 1;
+            Int32 SupplierNo = 2;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.Postcode != Convert.ToString("BK120PG"))
+            if (ASupplier.Postcode != Convert.ToString("BK141TT"))
             {
                 OK = false;
             }
@@ -234,11 +234,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 1;
+            Int32 SupplierNo = 2;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.Description != Convert.ToString("The number 1 bookshop in bookfords"))
+            if (ASupplier.Description != Convert.ToString("This is the best book supplier ever"))
             {
                 OK = false;
             }
@@ -256,11 +256,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 1;
+            Int32 SupplierNo = 2;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.PhoneNumber != Convert.ToString("07453457689"))
+            if (ASupplier.PhoneNumber != Convert.ToString("07567483942"))
             {
                 OK = false;
             }
@@ -278,11 +278,11 @@ namespace BookStore_Testing
             //boolean variable to record is data is OK
             Boolean OK = true;
             //create test data
-            Int32 SupplierNo = 1;
+            Int32 SupplierNo = 2;
             //invoke the method
             Found = ASupplier.Find(SupplierNo);
             //check the supplier no
-            if (ASupplier.Cost != Convert.ToDouble(111))
+            if (ASupplier.Cost != Convert.ToDouble(4))
             {
                 OK = false;
             }

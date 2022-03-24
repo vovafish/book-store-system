@@ -227,17 +227,17 @@ namespace BookStore_Testing
             //var to store outcome
             Boolean OK = true;
             //apply a Name that doesn't exist
-            FilteredSuppliers.ReportByName("Book Land");
+            FilteredSuppliers.ReportByName("All Books");
             //check that the correct nyumber of records are found
             if (FilteredSuppliers.Count == 2)
             {
                 //check that the first record is ID 36
-                if (FilteredSuppliers.SupplierList[0].SupplierNo != 3)
+                if (FilteredSuppliers.SupplierList[0].SupplierNo != 52)
                 {
                     OK = false;
                 }
                 //check that the first record is 37
-                if (FilteredSuppliers.SupplierList[1].SupplierNo != 4)
+                if (FilteredSuppliers.SupplierList[1].SupplierNo != 54)
                 {
                     OK = false;
                 }
