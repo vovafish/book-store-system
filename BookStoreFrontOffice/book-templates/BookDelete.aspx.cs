@@ -44,6 +44,6 @@ public partial class Delete : System.Web.UI.Page
 
     protected void btnLogout_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("../Default.aspx");
     }
 }

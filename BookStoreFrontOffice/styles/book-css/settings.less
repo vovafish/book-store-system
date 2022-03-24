@@ -6,8 +6,52 @@
     width: 94%;
     margin: auto;
     background-color: @bg;
+    min-height: 100vh;
 }
 .btn {
-    width:fit-content;
-    padding: 3px 6px;
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid dimgrey;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 300;
+    color: dimgrey;
+    text-align: center;
+    transition: all 0.2s;
 }
+.btn:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+.btn-cancel {
+      width: 100%;
+      background-color: #9BE205;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+}   
+btn-cancel:hover {
+            background-color: #94D804;
+
+}
+ 
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#lblError > span {
+                font-size: 1.4em;
+                color: green;
+                font-weight: bold;
+            }
