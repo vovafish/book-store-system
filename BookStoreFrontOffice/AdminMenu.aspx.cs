@@ -39,7 +39,7 @@ public partial class AdminMenu : System.Web.UI.Page
 
     protected void btnSupplier_Click(object sender, EventArgs e)
     {
-        Response.Redirect("ASupplier.aspx");
+        Response.Redirect("SupplierDefault.aspx");
     }
 
     protected void btnDefault_Click(object sender, EventArgs e)

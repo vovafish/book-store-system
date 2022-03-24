@@ -9,8 +9,8 @@
     <style type="text/css">
         .auto-style1 {
             z-index: 1;
-            left: 334px;
-            top: 397px;
+            left: 441px;
+            top: 396px;
             position: absolute;
             height: 58px;
             width: 339px;
@@ -24,19 +24,20 @@
         }
         .auto-style6 {
             z-index: 1;
-            left: 411px;
-            top: 537px;
+            left: 544px;
+            top: 544px;
             position: absolute;
             height: 33px;
             width: 318px;
         }
         .auto-style12 {
             z-index: 1;
-            left: 755px;
-            top: 533px;
+            left: 881px;
+            top: 539px;
             position: absolute;
             height: 47px;
             width: 118px;
+            right: 1126px;
         }
         .auto-style13 {
             z-index: 1;
@@ -65,30 +66,30 @@
         }
         .auto-style16 {
             z-index: 1;
-            left: 643px;
-            top: 498px;
+            left: 832px;
+            top: 504px;
             position: absolute;
         }
         .auto-style17 {
             z-index: 1;
-            left: 412px;
-            top: 606px;
+            left: 545px;
+            top: 608px;
             position: absolute;
             height: 397px;
-            width: 458px;
+            width: 447px;
         }
         .auto-style18 {
             z-index: 1;
-            left: 888px;
-            top: 605px;
+            left: 1062px;
+            top: 611px;
             position: absolute;
             height: 46px;
             width: 144px;
         }
         .auto-style19 {
             z-index: 1;
-            left: 340px;
-            top: 460px;
+            left: 445px;
+            top: 457px;
             position: absolute;
         }
     </style>
@@ -129,6 +130,7 @@
         <asp:Button ID="BtnLogin" runat="server" OnClick="Button2_Click" style="z-index: 1; left: 1372px; top: 100px; position: absolute; height: 48px; width: 99px; font-weight: 700; right: 891px;" Text="Login" BackColor="#333333" ForeColor="#33CCFF" />
         <p>
             <asp:Button ID="BtnSelectSupplier" OnClick="BtnSelectSupplier_Click" runat="server" BackColor="#333333" CssClass="auto-style18" Font-Bold="True" ForeColor="#33CCFF" Text="Select Supplier" />
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 1058px; top: 543px; position: absolute; width: 247px" Visible="False"></asp:Label>
         </p>
         <asp:Button ID="BtnOrders" runat="server" style="z-index: 1; top: 303px; position: absolute; left: 1055px; height: 50px; width: 151px; font-weight: 700" Text="Orders" BackColor="#333333" ForeColor="#33CCFF" OnClick="BtnOrders_Click" />
         <asp:Button ID="BtnBooks" runat="server" style="z-index: 1; left: 599px; top: 303px; position: absolute; height: 51px; width: 150px; font-weight: 700; right: 1609px; margin-right: 4px;" Text="Books" BackColor="#333333" ForeColor="#33CCFF" OnClick="BtnBooks_Click" />

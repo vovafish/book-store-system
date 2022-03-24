@@ -175,7 +175,7 @@ namespace BookStoreClasses
 
         }
 
-        public string Valid(string name, string address, string postcode, string cost, string description, string phoneNumber)
+        public string Valid(string name, string address, string postcode, string phoneNumber, string cost, string description)
         {
             //create a string to store the error
             string Error = "";

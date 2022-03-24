@@ -298,7 +298,7 @@ namespace BookStore_Testing
             //string variable to store any error message
             String Error = "";
             //invoke the method
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -306,9 +306,10 @@ namespace BookStore_Testing
         string Name = "Book Depot";
         string Address = "1 Book Lane, Booksford";
         string Postcode = "BK148PG";
+        string PhoneNumber = "07849302192";
         string Cost = "5.23";
         string Description = "The best book store";
-        string PhoneNumber = "07849302192";
+        
 
 
         [TestMethod]
@@ -321,7 +322,7 @@ namespace BookStore_Testing
             //create test data
             string Name = ""; // this should trigger and error
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -336,7 +337,7 @@ namespace BookStore_Testing
             //create test data
             string Name = "a";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -351,7 +352,7 @@ namespace BookStore_Testing
             //create test data
             string Name = "aa";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -366,7 +367,7 @@ namespace BookStore_Testing
             //create test data
             string Name = "0123456789012345678";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -381,7 +382,7 @@ namespace BookStore_Testing
             //create test data
             string Name = "01234567890123456789";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -396,7 +397,7 @@ namespace BookStore_Testing
             //create test data
             string Name = "012345678901234567890";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -411,7 +412,7 @@ namespace BookStore_Testing
             //create test data
             string Name = "0123456789";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -427,7 +428,7 @@ namespace BookStore_Testing
             string Name = "";
             Name = Name.PadRight(200, 'a'); //this should fail
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -442,7 +443,7 @@ namespace BookStore_Testing
             //create test data
             string Address = ""; // this should trigger and error
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description); ;
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -457,7 +458,7 @@ namespace BookStore_Testing
             //create test data
             string Address = "aa";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -472,7 +473,7 @@ namespace BookStore_Testing
             //create test data
             string Address = "a";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -487,7 +488,7 @@ namespace BookStore_Testing
             //create test data
             string Address = "KN6HLesHY9ILznPnxzRnrbBuGyfhKm6iI4NLOGp2qXTAfqNtK";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -502,7 +503,7 @@ namespace BookStore_Testing
             //create test data
             string Address = "KN6HLesHY9ILznPnxzRnrbBuGyfhKm6iI4NLOGp2qXTAfqNtKr";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -517,7 +518,7 @@ namespace BookStore_Testing
             //create test data
             string Address = "KN6HLesHY9ILznPnxzRnrbBuGyfhKm6iI4NLOGp2qXTAfqNtKre";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -532,7 +533,7 @@ namespace BookStore_Testing
             //create test data
             string Address = "khBR2TMDuqIX3deZah9VnSCFa";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -548,7 +549,7 @@ namespace BookStore_Testing
             string Address = "";
             Address = Address.PadRight(500, 'a'); //this should fail
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -563,7 +564,7 @@ namespace BookStore_Testing
             //create test data
             string Postcode = ""; // this should trigger and error
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -578,7 +579,7 @@ namespace BookStore_Testing
             //create test data
             string Postcode = "aa";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -593,7 +594,7 @@ namespace BookStore_Testing
             //create test data
             string Postcode = "a";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -608,7 +609,7 @@ namespace BookStore_Testing
             //create test data
             string Postcode = "aaaaaa";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -623,7 +624,7 @@ namespace BookStore_Testing
             //create test data
             string Postcode = "aaaaaaa";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -638,7 +639,7 @@ namespace BookStore_Testing
             //create test data
             string Postcode = "aaaaaaaa";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -653,7 +654,7 @@ namespace BookStore_Testing
             //create test data
             string Postcode = "aaa";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -669,7 +670,7 @@ namespace BookStore_Testing
             string Postcode = "";
             Postcode = Postcode.PadRight(20, 'a'); //this should fail
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -684,7 +685,7 @@ namespace BookStore_Testing
             //create test data
             string Description = ""; // this should trigger and error
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -699,7 +700,7 @@ namespace BookStore_Testing
             //create test data
             string Description = "aa";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -714,7 +715,7 @@ namespace BookStore_Testing
             //create test data
             string Description = "a";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -730,7 +731,7 @@ namespace BookStore_Testing
             string Description = "";
             Description = Description.PadRight(199, 'a');
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -746,7 +747,7 @@ namespace BookStore_Testing
             string Description = "";
             Description = Description.PadRight(200, 'a');
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -762,7 +763,7 @@ namespace BookStore_Testing
             string Description = "";
             Description = Description.PadRight(201, 'a');
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -777,7 +778,7 @@ namespace BookStore_Testing
             //create test data
             string Description = "aaa";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -793,7 +794,7 @@ namespace BookStore_Testing
             string Description = "";
             Description = Description.PadRight(700, 'a'); //this should fail
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -808,7 +809,7 @@ namespace BookStore_Testing
             //create test data
             string PhoneNumber = ""; // this should trigger and error
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -823,7 +824,7 @@ namespace BookStore_Testing
             //create test data
             string PhoneNumber = "123456789012";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -838,7 +839,7 @@ namespace BookStore_Testing
             //create test data
             string PhoneNumber = "12345678901";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -853,7 +854,7 @@ namespace BookStore_Testing
             //create test data
             string PhoneNumber = "1234567890";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -868,7 +869,7 @@ namespace BookStore_Testing
             //create test data
             string PhoneNumber = "12345678901";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -883,7 +884,7 @@ namespace BookStore_Testing
             //create test data
             string PhoneNumber = "123456789012";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -898,7 +899,7 @@ namespace BookStore_Testing
             //create test data
             string PhoneNumber = "12345678901";
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -914,7 +915,7 @@ namespace BookStore_Testing
             string PhoneNumber = "";
             PhoneNumber = PhoneNumber.PadRight(20, 'a'); //this should fail
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -933,7 +934,7 @@ namespace BookStore_Testing
             //set test data to the cost
             string Cost = TestData.ToString();
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -952,7 +953,7 @@ namespace BookStore_Testing
             //set test data to the cost
             string Cost = TestData.ToString();
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -971,7 +972,7 @@ namespace BookStore_Testing
             //set test data to the cost
             string Cost = TestData.ToString();
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -990,7 +991,7 @@ namespace BookStore_Testing
             //set test data to the cost
             string Cost = TestData.ToString();
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -1009,8 +1010,7 @@ namespace BookStore_Testing
             //set test data to the cost
             string Cost = TestData.ToString();
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
-            //test to see if found
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             Assert.AreEqual(Error, "");
         }
 
@@ -1028,7 +1028,7 @@ namespace BookStore_Testing
             //set test data to the cost
             string Cost = TestData.ToString();
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
@@ -1047,7 +1047,7 @@ namespace BookStore_Testing
             //set test data to the cost
             string Cost = TestData.ToString();
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreEqual(Error, "");
         }
@@ -1066,7 +1066,7 @@ namespace BookStore_Testing
             //set test data to the cost
             string Cost = TestData.ToString();
             //assign test data to property
-            Error = ASupplier.Valid(Name, Address, Postcode, Cost, Description, PhoneNumber);
+            Error = ASupplier.Valid(Name, Address, Postcode, PhoneNumber, Cost, Description);
             //test to see if found
             Assert.AreNotEqual(Error, "");
         }
