@@ -31,55 +31,78 @@ namespace BookStore_Testing
         [TestMethod]
         public void FindOK()
         {
+            //instance of the class
             clsBook ABook = new clsBook();
+            //boolean variable to for the validation results
             Boolean Found = false;
+            //create test data
             int TestData = 1;
+            //invoke the method
             Found = ABook.Find(TestData);
+            //test to see if the result is true
             Assert.IsTrue(Found);
         }
 
         [TestMethod]
         public void TestBookIdFound()
         {
+            //instance of the class
             clsBook ABook = new clsBook();
+            //boolean variable to for the validation results
             Boolean Found = false;
+            //boolean variable to for the validation results
             Boolean OK = true;
+            //create test data
             int BookId = 3;
+            //invoke the method
             Found = ABook.Find(BookId);
             if (ABook.BookId != 3)
             {
                 OK = false;
             }
+            //test to see if the result is true
             Assert.IsTrue(OK);
         }
         
         [TestMethod]
         public void TestBookTitleFound()
         {
+            //instance of the class
             clsBook ABook = new clsBook();
+            //boolean variable to for the validation results
             Boolean Found = false;
+            //boolean variable to for the validation results
             Boolean OK = true;
+            //create test data
             int BookId = 3;
+            //invoke the method
             Found = ABook.Find(BookId);
             if (ABook.BookTitle != "BookName")
             {
                 OK = false;
             }
+            //test to see if the result is true
             Assert.IsTrue(OK);
         }
 
         [TestMethod]
         public void TestEditionFound()
         {
+            //instance of the class
             clsBook ABook = new clsBook();
+            //boolean variable to for the validation results
             Boolean Found = false;
+            //boolean variable to for the validation results
             Boolean OK = true;
+            //create test data
             int BookId = 3;
+            //invoke the method
             Found = ABook.Find(BookId);
             if (ABook.Edition != 1)
             {
                 OK = false;
             }
+            //test to see if the result is true
             Assert.IsTrue(OK);
         }
 
@@ -194,9 +217,13 @@ namespace BookStore_Testing
         [TestMethod]
         public void ListOK()
         {
+            //create an instance of the class we want to create
             clsBook ABook = new clsBook();
+            //create bool var
             Boolean Listed;
+            //assign result to the var (true oor false)
             Listed = ABook.List();
+            //test to see that result if correct
             Assert.IsTrue(Listed);
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 
 /* THE FILE CREATED BY VLADIMIRS RIBAKOVS */
+// @VR
 
 namespace BookStoreClasses
 {
@@ -16,24 +17,27 @@ namespace BookStoreClasses
         private decimal mBookShelfNo;
         private string mGenreName;
 
-        
 
+        //public property for title
         public string BookTitle
         {
             get
             {
+                //this line of code send data out of the property
                 return mBookTitle;
             }
             set
             {
+                //this line of code allows data into the property
                 mBookTitle = value;
             }
         }
-
+        //public property for edition
         public int Edition
         {
             get
             {
+                //this line of code send data out of the property
                 return mEdition;
             }
             set
@@ -56,64 +60,74 @@ namespace BookStoreClasses
                 mAuthor = value;
             }
         }
-        /*
-         the rest of the code means the same
-         */
         
+        //public property for pub year
         public int PublicationYear
         {
             get
             {
+                //return the private data
                 return mPublicationYear;
             }
             set
             {
+                //set the private data
                 mPublicationYear = value;
             }
         }
+        //public property for price
         public decimal BookPrice
         {
             get
             {
+                //return the private data
                 return mBookPrice;
             }
             set
             {
+                //set the private data
                 mBookPrice = value;
             }
         }
+        //public property for shelf no
         public decimal BookShelfNo
         {
             get
             {
+                //return the private data
                 return mBookShelfNo;
             }
             set
             {
+                //set the private data
                 mBookShelfNo = value;
             }
         }
-       
+        //public property for genre
         public string GenreName
         {
             get
             {
+                //return the private data
                 return mGenreName;
             }
             set
             {
+                //set the private data
                 mGenreName = value;
             }
         }
-
+        //public property for book id
         public int BookId
         {
             get
             {
+                //return the private data
                 return mBookId;
             }
             set
             {
+                //set the private data
                 mBookId = value;
             }
         }

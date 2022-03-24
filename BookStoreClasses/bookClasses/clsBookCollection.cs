@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+// @VR
+
 namespace BookStoreClasses
 {
     public class clsBookCollection
@@ -27,10 +29,12 @@ namespace BookStoreClasses
             //return the private data
             get
             {
+                //return the private data
                 return mThisBook;
             }
             set
             {
+                //set the private data
                 mThisBook = value;
             }
         }
@@ -94,7 +98,7 @@ namespace BookStoreClasses
 
         public int Add() 
         {
-            //adds a new record to the DB based on the value of mThisAddress
+            //adds a new record to the DB based on the value of mThisBook
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
@@ -155,29 +159,41 @@ namespace BookStoreClasses
 
         public void PriceLowToHigh()
         {
+            //connect to the DB
             clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
             DB.Execute("sproc_tblBook_PriceLowToHigh");
+            //populate the array list with the data table
             PopulateArray(DB);
         }
 
         public void PriceHighToLow()
         {
+            //connect to the DB
             clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
             DB.Execute("sproc_tblBook_PriceHighToLow");
+            //populate the array list with the data table
             PopulateArray(DB);
         }
 
         public void OrderByAuthor()
         {
+            //connect to the DB
             clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
             DB.Execute("sproc_tblBook_OrderByAuthor");
+            //populate the array list with the data table
             PopulateArray(DB);
         }
 
         public void OrderByPubYear()
         {
+            //connect to the DB
             clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
             DB.Execute("sproc_tblBook_OrderByPubYear");
+            //populate the array list with the data table
             PopulateArray(DB);
         }
     }
