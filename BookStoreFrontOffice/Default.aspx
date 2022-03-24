@@ -28,6 +28,7 @@
                     <div>
                         <h1>Welcome to the Get My Book</h1>
                         <p>Feel free to find your favourite book</p>
+                        <p>Call us: <span>0115 496 0934</span></p>
                     </div>
                     <div>
                         <div class="wrapper">
