@@ -53,6 +53,7 @@
     <Compile Include="orderTesting\tstClsOrderLineCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="bookTesting\tstBook.cs" />
+    <Compile Include="StaffMangement\clsStaffCollections.cs" />
     <Compile Include="supplierTesting\tstSupplier.cs" />
     <Compile Include="bookTesting\tstBookCollection.cs" />
     <Compile Include="supplierTesting\tstSupplierCollection.cs" />
@@ -66,6 +67,7 @@
       <Name>BookStoreClasses</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

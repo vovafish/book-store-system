@@ -15,7 +15,7 @@ namespace BookStoreClasses
         {
             //object for data connection
             clsDataConnection DB = new clsDataConnection();
-            //execute the sproc
+            //execute the sproc 
             DB.Execute("sproc_tblSupplier_SelectAll");
             //populate arrary list with the data table
             PopulateArray(DB);
