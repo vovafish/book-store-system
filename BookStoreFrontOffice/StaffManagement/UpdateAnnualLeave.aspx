@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AnnualLeave.aspx.cs" Inherits="StaffManagement_AnnualLeave" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UpdateAnnualLeave.aspx.cs" Inherits="StaffManagement_AnnualLeave" %>
 
 <!DOCTYPE html>
 
@@ -8,6 +8,15 @@
     <style type="text/css">
         #btnApply {
             height: 26px;
+        }
+        #txtNoDays {
+            margin-bottom: 0px;
+        }
+        #Text1 {
+            z-index: 1;
+            left: 138px;
+            top: 466px;
+            position: absolute;
         }
     </style>
 </head>
@@ -62,11 +71,14 @@
                 </UpdateParameters>
             </asp:SqlDataSource>
         <h3>Staff ID</h3>           
-        <input id="txtStaffID" type="text" />
-        <h3>Duration of annual leave</h3><input id="txtNoDays" type="text" />
-        <h3>Start of annual leave</h3><input id="txtStartDate" type="text" /><input id="btnApply" type="button" value="Apply" />
+        <h3>Duration of annual leave<asp:TextBox ID="txtNoDays" runat="server" style="z-index: 1; left: 215px; top: 294px; position: absolute" OnTextChanged="txtNoDays_TextChanged"></asp:TextBox>
+            </h3><asp:TextBox ID="txtStaffID" runat="server" OnTextChanged="txtStaffID_TextChanged" style="z-index: 1; left: 86px; top: 252px; position: absolute"></asp:TextBox>
+        <h3 style="height: 34px">Start of annual leave<asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" style="z-index: 1; left: 305px; top: 384px; position: absolute; width: 72px" Text="Add" />
+            <asp:TextBox ID="txtLeaveStart" runat="server" OnTextChanged="txtStartDate_TextChanged1" style="z-index: 1; left: 212px; top: 344px; position: absolute"></asp:TextBox>
+            </h3>
         </div>
     </form>
+    
     
 </body>
 </html>

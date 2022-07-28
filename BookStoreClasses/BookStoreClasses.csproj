@@ -44,8 +44,8 @@
     <Compile Include="bookClasses\clsBook.cs" />
     <Compile Include="bookClasses\clsBookCollection.cs" />
     <Compile Include="clsDataConnection.cs" />
-    <Compile Include="clsStaff.cs" />
-    <Compile Include="clsStaffCollections.cs" />
+    <Compile Include="StaffClasses\clsStaff.cs" />
+    <Compile Include="StaffClasses\clsStaffCollections.cs" />
     <Compile Include="clsSupplier.cs" />
     <Compile Include="clsSupplierCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

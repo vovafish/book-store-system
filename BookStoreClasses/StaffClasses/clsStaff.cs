@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookStoreClasses
 {
-  
+
     public class clsStaff
     {
         //StaffID Private member variable
@@ -28,9 +28,9 @@ namespace BookStoreClasses
             }
         }
         //StaffFirstname Private member variable
-        private Int32 mStaffFirstname;
+        private String mStaffFirstname;
         //StaffFirstname public attribute
-        public Int32 StaffFirstname
+        public String StaffFirstname
         {
             get
             {
@@ -44,9 +44,9 @@ namespace BookStoreClasses
             }
         }
         //StaffLastname Private member variable
-        private Int32 mStaffLastname;
+        private String mStaffLastname;
         //StaffLastname public attribute
-        public Int32 StaffLastname
+        public String StaffLastname
         {
             get
             {
@@ -61,9 +61,9 @@ namespace BookStoreClasses
         }
 
         //StaffDoB Private member variable
-        private Int32 mStaffDoB;
+        private String mStaffDoB;
         //StaffDoB public attribute
-        public Int32 StaffDoB
+        public String StaffDoB
         {
             get
             {
@@ -79,9 +79,9 @@ namespace BookStoreClasses
 
 
         //StaffAddress Private member variable
-        private Int32 mStaffAddress;
+        private String mStaffAddress;
         //StaffAddress public attribute
-        public Int32 StaffAddress
+        public String StaffAddress
         {
             get
             {
@@ -91,14 +91,14 @@ namespace BookStoreClasses
             set
             {
                 // this line grants data into the attribute
-                mStaffAddress= value;
+                mStaffAddress = value;
             }
         }
 
         //StaffRole Private member variable
-        private Int32 mStaffRole;
+        private String mStaffRole;
         //StaffRole public attribute
-        public Int32 StaffRole
+        public String StaffRole
         {
             get
             {
@@ -113,9 +113,9 @@ namespace BookStoreClasses
         }
 
         //StaffContactNo Private member variable
-        private Int32 mStaffContactNo;
+        private String mStaffContactNo;
         //StaffContactNo public attribute
-        public Int32 StaffContactNo
+        public String StaffContactNo
         {
             get
             {
@@ -130,9 +130,9 @@ namespace BookStoreClasses
         }
 
         //StaffEmail Private member variable
-        private Int32 mStaffEmail;
+        private String mStaffEmail;
         //StaffEmail public attribute
-        public Int32 StaffEmail
+        public String StaffEmail
         {
             get
             {
@@ -163,9 +163,9 @@ namespace BookStoreClasses
             }
         }
         //NextAnnualLeave Private member variable
-        private Int32 mNextAnnualLeave;
+        private String mNextAnnualLeave;
         //NextAnnualLeave public attribute
-        public Int32 NextAnnualLeave
+        public String NextAnnualLeave
         {
             get
             {
@@ -178,6 +178,37 @@ namespace BookStoreClasses
                 mNextAnnualLeave = value;
             }
         }
+        public bool Find(int StaffID)
+        {
+            //database connection
+            clsDataConnection DC = new clsDataConnection();
+            DC.AddParameter("@StaffID", StaffID);
+            //execute the query 
+            DC.Execute("sproc_tblStaffDetail_FilterByStaffID");
+            if (DC.Count == 1)
+            {
+                mStaffID = Convert.ToInt32(DC.DataTable.Rows[0]);
+                mStaffFirstname = Convert.ToString(DC.DataTable.Rows[0]["StaffFirstname"]);
+                mStaffLastname = Convert.ToString(DC.DataTable.Rows[0]["StaffLastname"]);
+                mStaffDoB = Convert.ToString(DC.DataTable.Rows[0]["StaffDoB"]);
+                mStaffAddress = Convert.ToString(DC.DataTable.Rows[0]["StaffAddress"]);
+                mStaffRole = Convert.ToString(DC.DataTable.Rows[0]["StaffRole"]);
+                mStaffContactNo = Convert.ToString(DC.DataTable.Rows[0]["StaffContactNo"]);
+                mStaffEmail = Convert.ToString(DC.DataTable.Rows[0]["StaffEmail"]);
+                mAnnualLeaveRemainingDays = Convert.ToInt32(DC.DataTable.Rows[0]["AnnualLeaveRemainingDays"]);
+                mNextAnnualLeave = Convert.ToString(DC.DataTable.Rows[0]["NextAnnualLeave"]);
 
+
+                return true;
+            }
+            //if not record is found
+            else
+            {
+                //return false that there is a problem
+                return false;
+            }
+
+
+        }
     }
 }
