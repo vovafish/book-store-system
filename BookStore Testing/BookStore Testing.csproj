@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Deliverytesting\tstDelivery.cs" />
     <Compile Include="orderTesting\tstClsOrderCollection.cs" />
     <Compile Include="orderTesting\tstClsOrderLineCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
