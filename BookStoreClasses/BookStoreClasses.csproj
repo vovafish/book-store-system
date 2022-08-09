@@ -45,12 +45,14 @@
     <Compile Include="bookClasses\clsBookCollection.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsDelivery.cs" />
-    <Compile Include="DeliveryClasses\clsDelivery.cs" />
     <Compile Include="StaffClasses\clsStaff.cs" />
     <Compile Include="StaffClasses\clsStaffCollections.cs" />
     <Compile Include="clsSupplier.cs" />
     <Compile Include="clsSupplierCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DeliveryClasses\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
