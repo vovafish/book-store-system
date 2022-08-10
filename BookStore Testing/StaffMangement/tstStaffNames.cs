@@ -1,20 +1,21 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace BookStore_Testing.StaffMangement
+namespace BookStore_Testing.StaffManagement
 {
     [TestClass]
-    public class tstStaff
+    public class tstStaffNames
     {
+       
             //creating an instance of the class we want to create
-            clsStaffCollections AStaff = new clsStaffCollections();
+            clsStaffCollection AStaff = new clsStaffCollection();
             //Test System
             [TestMethod]
             public void InstanceOK()
             {
                 string SomeStaffName = "JohnSmith";
-            //Assigning the data to the property
-            AStaff.StaffInstance = SomeStaffName;
+                //Assigning the data to the property
+                AStaff.StaffInstance = SomeStaffName;
                 //testing to see that it exists
                 Assert.IsNotNull(AStaff);
             }
@@ -141,4 +142,6 @@ namespace BookStore_Testing.StaffMangement
 
         }
 
-    }
+}
+
+
