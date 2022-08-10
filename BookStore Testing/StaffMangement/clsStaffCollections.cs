@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace BookStore_Testing.StaffMangement
 {
-    public class clsStaffCollections
+    class clsStaffCollections
     {
-        public clsStaffCollections()
-        {
-
-
-        }
+        public Boolean Active { get; internal set; }
     }
 }

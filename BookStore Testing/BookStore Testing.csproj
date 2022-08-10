@@ -55,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="bookTesting\tstBook.cs" />
     <Compile Include="StaffMangement\clsStaffCollections.cs" />
+    <Compile Include="StaffMangement\tstStaff.cs" />
     <Compile Include="supplierTesting\tstSupplier.cs" />
     <Compile Include="bookTesting\tstBookCollection.cs" />
     <Compile Include="supplierTesting\tstSupplierCollection.cs" />
