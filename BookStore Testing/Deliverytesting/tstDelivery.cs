@@ -6,7 +6,7 @@ namespace BookStore_Testing.DeliveryTesting
     [TestClass]
     public class tstDelivery
     {
-       
+
         //creating an instance of the class we want to create for all test
         clsDelivery ADelivery = new clsDelivery();
         //Test System
@@ -40,7 +40,7 @@ namespace BookStore_Testing.DeliveryTesting
             //testing to check  that the 2 values are equal
             Assert.AreEqual(Name, ADelivery.Delivery_status);
         }
-        
+
 
         [TestMethod]
         public void Delivery_IDOK()
@@ -82,12 +82,12 @@ namespace BookStore_Testing.DeliveryTesting
         public void FoundOK()
         {
 
-            
-           Int32 TestData;
-           TestData = 1;
-           Boolean found;
-           found = ADelivery.find(TestData);
-           Assert.IsTrue(found);
+
+            Int32 TestData;
+            TestData = 1;
+            Boolean found;
+            found = ADelivery.find(TestData);
+            Assert.IsTrue(found);
         }
 
 
@@ -188,6 +188,95 @@ namespace BookStore_Testing.DeliveryTesting
             Assert.AreNotEqual(Error, "");//AreNotEqual means if Fails the ValidMethod then the test passes as the Vaild Method has worked
 
 
+        }
+
+        [TestMethod]
+        public void FindMethodOK()
+
+        {
+
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //creating test data to use with the Method 
+            Int32 Delivery_ID = 21;
+            //invoke the method 
+            Found = ADelivery.Find(Delivery_ID);
+            //test to see if the result is true 
+            Assert.IsTrue(Found);
+
+        }
+
+        [TestMethod]
+        public void TestDeliveryIDFound()
+        {
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok 
+            Boolean OK = true;
+            //create test dta to use with the method 
+            Int32 Delivery_ID = 21;
+            //invoke the method 
+            Found = ADelivery.Find(Delivery_ID);
+            //check Delivery_ID
+            if (ADelivery.Delivery_ID != 21)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct 
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDelivery_dateFound()
+        {
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 Delivery_ID = 21;
+            Found = ADelivery.Find(Delivery_ID);
+            if (ADelivery.Delivery_date != Convert.ToDateTime("16/09/2021"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+
+        [TestMethod]
+        public void TestFK_Order_IDFound()
+        {
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is ok 
+            Boolean OK = true;
+            //create test dta to use with the method 
+            Int32 Delivery_ID = 21;
+            //invoke the method 
+            Found = ADelivery.Find(Delivery_ID);
+            //check Delivery_ID
+            if (ADelivery.FK_Order_ID != 2)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct 
+            Assert.IsTrue(OK);
+
+
+
+        }
+
+        [TestMethod]
+        public void TestDelivery_statusFound()
+        {
+
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 Delivery_ID = 21;
+            Found = ADelivery.Find(Delivery_ID);
+            if (ADelivery.Delivery_status !="pending")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
 
     }

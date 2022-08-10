@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DeliveryTesting\clsDelivery.cs" />
     <Compile Include="DeliveryTesting\tstDelivery.cs" />
+    <Compile Include="DeliveryTesting\tstDelivery1.cs" />
     <Compile Include="orderTesting\tstClsOrderCollection.cs" />
     <Compile Include="orderTesting\tstClsOrderLineCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
