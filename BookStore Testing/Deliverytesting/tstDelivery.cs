@@ -54,17 +54,7 @@ namespace BookStore_Testing.DeliveryTesting
             Assert.AreEqual(TestData, ADelivery.Delivery_ID);
         }
 
-        [TestMethod]
-        public void FK_Order_IDOK()
-        {
-
-            //Create the test data to be assigned to the properties
-            Int32 TestData = 12;
-            //assigning  the data to the property
-            ADelivery.FK_Order_ID = TestData;
-            //test to  see that the 2 values are equal
-            Assert.AreEqual(TestData, ADelivery.FK_Order_ID);
-        }
+        
 
         [TestMethod]
         public void Delivery_DateOK()
@@ -98,9 +88,9 @@ namespace BookStore_Testing.DeliveryTesting
             //creating a string varible to store the result of the validation
             string Error = "";
             //creating some test data to test the method
-            string TestData = "pending";
+            string Delivery = "pending";
             //invoking the method
-            Error = ADelivery.Valid(TestData);
+            Error = ADelivery.Valid(Delivery);
             //test to see that the result is ok(no error returned)
             Assert.AreEqual(Error, "");
 
@@ -110,24 +100,12 @@ namespace BookStore_Testing.DeliveryTesting
         //Field Testing Below
         //Delivery_ID Tests
 
-        [TestMethod]
-        //this test covers both extreme and -1 min tests
-        public void NameMinMinus1()
-        {
-            //testing the minimum for the field Staff_Name -1
-            string TestData;
-            TestData = "";
-            string Error;
-            Error = ADelivery.Valid(TestData);
-            Assert.AreNotEqual(Error, "");//AreNotEqual means if Fails the ValidMethod then the test passes as the Vaild Method has worked
-
-
-        }
+        
         [TestMethod]
         //min test
-        public void NameMin()
+        public void DeliveryMin()
         {
-            //testing the minimum for the field Staff_Name
+            //testing the minimum for the field delivery status
             string TestData;
             TestData = "A";
             string Error;
@@ -136,7 +114,7 @@ namespace BookStore_Testing.DeliveryTesting
         }
         [TestMethod]
         //Max -1 Test
-        public void NameMaxMinus1()
+        public void DeliveryMaxMinus1()
         {
             string TestData = "";
             TestData = TestData.PadRight(19, 'A');
@@ -146,7 +124,7 @@ namespace BookStore_Testing.DeliveryTesting
         }
         [TestMethod]
         //Max Test
-        public void NameMax()
+        public void DeliveryMax()
         {
             string TestData = "";
             TestData = TestData.PadRight(20, 'A');
@@ -157,10 +135,10 @@ namespace BookStore_Testing.DeliveryTesting
 
         [TestMethod]
         //Max +1 Test
-        public void NameMaxPlus1()
+        public void DeliveryMaxPlus1()
         {
             string TestData = "";
-            TestData = TestData.PadRight(21, 'A');
+            TestData = TestData.PadRight(51, 'A');
             string Error;
             Error = ADelivery.Valid(TestData);
             Assert.AreNotEqual(Error, "");//AreNotEqual means if Fails the ValidMethod then the test passes as the Vaild Method has worked
@@ -169,7 +147,7 @@ namespace BookStore_Testing.DeliveryTesting
         }
         [TestMethod]
         //Mid Test
-        public void NameMid()
+        public void DeliveryMid()
         {
             string TestData = "";
             TestData = TestData.PadRight(10, 'A');
@@ -179,7 +157,7 @@ namespace BookStore_Testing.DeliveryTesting
         }
         [TestMethod]
         //Max Extreme Test
-        public void NameMaxExtreme()
+        public void DeliveryMaxExtreme()
         {
             string TestData = "";
             TestData = TestData.PadRight(500, 'A');

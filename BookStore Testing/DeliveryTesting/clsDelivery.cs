@@ -24,6 +24,20 @@ namespace BookStore_Testing.DeliveryTesting
             }
         }
 
+        internal string Valid(string delivery)
+        {
+            string Error;
+            Error = "";
+            if (delivery == "")
+            {
+                Error = "Field must cannot be blank";
+            }
+            if (delivery.Length > 50)
+            {
+                Error = "Field must not exceed 50 characters";
+            }
+            return Error;
+        }
         //private data memeber for the delivery id property
         private Int32 mDelivery_ID;
         // Dleivery_ID public Property
@@ -82,10 +96,7 @@ namespace BookStore_Testing.DeliveryTesting
         
 
 
-        internal string Valid(string name)
-        {
-            return "";
-        }
+        
 
         internal bool find(int Delivery_ID)
         {
