@@ -9,8 +9,11 @@ namespace BookStore_Testing.StaffManagement
        
             //creating an instance of the class we want to create
             clsStaffCollection AStaff = new clsStaffCollection();
-            //Test System
-            [TestMethod]
+
+        public object AStaffID { get; private set; }
+
+        //Test System
+        [TestMethod]
             public void InstanceOK()
             {
                 string SomeStaffName = "JohnSmith";
@@ -40,7 +43,18 @@ namespace BookStore_Testing.StaffManagement
                 //testing ton see that the 2 values are the same
                 Assert.AreEqual(Name, AStaff.Staff_Name);
             }
-            [TestMethod]
+        [TestMethod]
+        public void Staff_IDOK()
+        {
+
+            //Creating the test data to be assigned to the properties
+            Int32 ID = 1;
+            //assign the data to the property
+            AStaff.StaffID = ID;
+            //testing ton see that the 2 values are the same
+            Assert.AreEqual(ID, AStaff.StaffID);
+        }
+        [TestMethod]
             public void ValidMethodOK()
             {
 
@@ -139,8 +153,88 @@ namespace BookStore_Testing.StaffManagement
 
             }
 
+        //StaffID test
+        //variable INT 
+        [TestMethod]
+        //this test covers both extreme and -1 min tests
+        public void IDMinMinus1()
+        {
+            //testing the minimum for the field Staff_ID -1
+            int TestData = 0;
+            TestData = TestData - 1;
+            string Error;
+            Error = AStaff.ValidID(TestData);
+            Assert.AreEqual(Error, "");//AreNotEqual means if Fails the ValidIDMethod then the test passes as the Vaild Method has worked
+
 
         }
+        [TestMethod]
+        //min test
+        public void IDMin()
+        {
+            //testing the minimum for the field Staff_ID
+            int TestData;
+            TestData = 1;
+            string Error;
+            Error = AStaff.ValidID(TestData);
+            Assert.AreEqual(Error, "");//AreEqual means if passes the ValidID method then the test passes
+        }
+        [TestMethod]
+        //Max -1 Test
+        public void IDMaxMinus1()
+        {
+            int TestData = 1;
+            TestData = TestData * 10 ^ 9;
+            string Error;
+            Error = AStaff.ValidID(TestData);
+            Assert.AreEqual(Error, "");//AreEqual means if passes the ValidID method then the test passes
+        }
+        [TestMethod]
+        //Max Test
+        public void IDMax()
+        {
+            int TestData = 1;
+            TestData = TestData * 10 ^ 10;
+            string Error;
+            Error = AStaff.ValidID(TestData);
+            Assert.AreEqual(Error, "");//AreEqual means if passes the ValidID method then the test passes
+        }
+
+        [TestMethod]
+        //Max +1 Test
+        public void IDMaxPlus1()
+        {
+            int TestData = 1;
+            TestData = TestData * 10 ^ 11;
+            string Error;
+            Error = AStaff.ValidID(TestData);
+            Assert.AreEqual(Error, "");//AreNotEqual means if Fails the ValidIDMethod then the test passes as the Vaild Method has worked
+
+
+        }
+        [TestMethod]
+        //Mid Test
+        public void IDMid()
+        {
+            int TestData = 1;
+            TestData = TestData * 10 ^ 3;
+            string Error;
+            Error = AStaff.ValidID(TestData);
+            Assert.AreEqual(Error, "");//AreEqual means if passes the ValidID method then the test passes
+        }
+        [TestMethod]
+        //Max Extreme Test
+        public void IDMaxExtreme()
+        {
+            int TestData = 1;
+            TestData = TestData * 10 ^ 50;
+            string Error;
+            Error = AStaff.ValidID(TestData);
+            Assert.AreEqual(Error, "");//AreNotEqual means if Fails the ValidIDMethod then the test passes as the Vaild Method has worked
+        }
+
+
+    }
 
 }
 
