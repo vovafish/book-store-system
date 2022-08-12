@@ -24,7 +24,7 @@ public partial class AdminMenu : System.Web.UI.Page
 
     protected void btnDelivery_Click(object sender, EventArgs e)
     {
-        Response.Redirect(".aspx");
+        Response.Redirect("ADelivery.aspx");
     }
 
     protected void btnCustomers_Click(object sender, EventArgs e)

@@ -10,7 +10,7 @@ namespace BookStore_Testing.DeliveryTesting
     {
         public string DeliveryStatus { get; internal set; }
         public bool Active { get; internal set; }
-
+        //declaring variables
         private string mDelivery_status;
         public string Delivery_status
         {
